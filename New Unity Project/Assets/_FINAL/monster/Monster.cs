@@ -11,7 +11,9 @@ public class Monster : MonoBehaviour
     private bool walkingLeft = false;
     private bool walkingRight = true;
     public bool facingRight = true;
-
+    private Rigidbody2D rb;
+    private float moveDir;
+    
     public ParticleSystem ps;
     public bool ps_on = false;
 
@@ -21,6 +23,7 @@ public class Monster : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         facingRight = true;
         anim.SetBool("Walk", true);
@@ -106,33 +109,33 @@ public class Monster : MonoBehaviour
         if (walkingLeft == true && !Attacking)
         {
             //Debug.Log("please run me");
-            transform.Translate(-walkSpeed, 0, 0);
+            moveDir = -1;
         }
 
         if (walkingRight == true && !Attacking)
         {
             //Debug.Log("im going right");
-            transform.Translate(walkSpeed, 0, 0);
+            moveDir = 1;
         }
 
         
         //attack
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            anim.SetTrigger("AttackT");
-            anim.SetBool("Attack", true);
-            
-            //Set your anim variable here
-
-        }
-        
-        if (Input.GetKeyUp(KeyCode.Space))
-        {
-
-            anim.SetBool("Attack", false);
-            //Set your anim variable here
-
-        }
+        // if (Input.GetKeyDown(KeyCode.Space))
+        // {
+        //     anim.SetTrigger("AttackT");
+        //     anim.SetBool("Attack", true);
+        //     
+        //     //Set your anim variable here
+        //
+        // }
+        //
+        // if (Input.GetKeyUp(KeyCode.Space))
+        // {
+        //
+        //     anim.SetBool("Attack", false);
+        //     //Set your anim variable here
+        //
+        // }
 
         if (anim.GetCurrentAnimatorStateInfo(0).IsName("Attack") ||
             anim.GetCurrentAnimatorStateInfo(0).IsName("AttackR"))
@@ -142,6 +145,18 @@ public class Monster : MonoBehaviour
         else
         {
             Attacking = false;
+        }
+
+       
+        
+
+    }
+    void FixedUpdate()
+    {
+        if (!Attacking)
+        {
+            if (moveDir != 0)
+                rb.velocity = new Vector2((moveDir) * walkSpeed, rb.velocity.y);
         }
         
 
@@ -160,6 +175,12 @@ public class Monster : MonoBehaviour
 
         ps_on = !ps_on;
 
+
+    }
+
+    public void AttackToggle()
+    {
+        anim.SetTrigger("AttackT");
 
     }
 
