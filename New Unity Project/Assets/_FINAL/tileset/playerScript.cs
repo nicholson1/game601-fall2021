@@ -37,7 +37,6 @@ public class playerScript : MonoBehaviour
         if (hit.collider != null && hit.collider.CompareTag("ground"))
         {
             onGround = true;
-            Debug.Log(Mathf.Abs(rb.velocity.y));
             if (falling && Mathf.Abs(rb.velocity.y) < .25)
             {
                 am.SetBool("jumping", false);
@@ -49,27 +48,27 @@ public class playerScript : MonoBehaviour
             onGround = false;
         }
 
-        if (Mathf.Abs(Input.GetAxis("Horizontal")) > 0.1f)
+        if (Mathf.Abs(Input.GetAxis("Horizontal")) > 0.01f )
         {
             moveDir = Input.GetAxis("Horizontal");
+            am.SetBool("walking", true);
         }
         else
         {
             moveDir = 0;
-            am.SetBool("walking", false);
+            if( Mathf.Abs(rb.velocity.x) > .01f)
+                am.SetBool("walking", false);
         }
-        
+
         //if you presss right arrow, run to the right
         if (moveDir > 0)
         {
-            am.SetBool("walking", true);
             GetComponent<SpriteRenderer>().flipX = false;
         }
 
         //if ypu press left arrow, run left
         else if (moveDir <0)
         {
-            am.SetBool("walking", true);
             GetComponent<SpriteRenderer>().flipX = true;
         }
 
@@ -81,6 +80,8 @@ public class playerScript : MonoBehaviour
                 falling = true;
             }
         }
+
+       
         
 
         //if you press space, jump
@@ -94,6 +95,10 @@ public class playerScript : MonoBehaviour
 
 
             }
+            else if( onGround)
+            {
+                _levelManager.JumpTrigger();
+            }
         }
         
        
@@ -103,7 +108,7 @@ public class playerScript : MonoBehaviour
     {
         if (onGround)
         {
-            _levelManager.JumpTrigger();
+            
             rb.AddForce(transform.up * jumpStrength, ForceMode2D.Impulse);
             jumping = true;
 
