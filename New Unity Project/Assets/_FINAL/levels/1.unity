@@ -456,7 +456,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2065967028096849827, guid: f1d2cf3287b6fc54cbd5dde968e49a77, type: 3}
       propertyPath: CollisionModule.collisionMessages
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2065967028096849827, guid: f1d2cf3287b6fc54cbd5dde968e49a77, type: 3}
       propertyPath: CollisionModule.m_Planes.Array.size

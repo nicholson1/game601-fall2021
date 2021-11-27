@@ -19,6 +19,7 @@ public class playerScript : MonoBehaviour
 
     private bool jumping =  false;
     private bool falling = false;
+    private bool attacking;
 
     // Start is called before the first frame update
     void Start()
@@ -85,7 +86,7 @@ public class playerScript : MonoBehaviour
         
 
         //if you press space, jump
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.UpArrow) ||Input.GetKeyDown(KeyCode.W) )
         {
             am.SetBool("jumping", true);
             if (falling && onGround)
@@ -95,13 +96,23 @@ public class playerScript : MonoBehaviour
 
 
             }
-            else if( onGround)
+            else if( onGround && !attacking)
             {
                 _levelManager.JumpTrigger();
             }
         }
-        
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            am.SetBool("attacking", true);
+            attacking = true;
+        }
        
+    }
+
+    public void Attacking()
+    {
+       //spawn trigger?
     }
 
     public void Jump()
