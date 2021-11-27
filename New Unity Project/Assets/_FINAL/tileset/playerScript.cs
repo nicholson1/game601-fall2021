@@ -48,7 +48,6 @@ public class playerScript : MonoBehaviour
         {
             onGround = false;
         }
-
         if (Mathf.Abs(Input.GetAxis("Horizontal")) > 0.01f )
         {
             moveDir = Input.GetAxis("Horizontal");
@@ -57,7 +56,7 @@ public class playerScript : MonoBehaviour
         else
         {
             moveDir = 0;
-            if( Mathf.Abs(rb.velocity.x) > .01f)
+            if( Mathf.Abs(rb.velocity.x) < .01f)
                 am.SetBool("walking", false);
         }
 
@@ -86,32 +85,36 @@ public class playerScript : MonoBehaviour
         
 
         //if you press space, jump
-        if (Input.GetKeyDown(KeyCode.UpArrow) ||Input.GetKeyDown(KeyCode.W) )
+        if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W) )
         {
-            am.SetBool("jumping", true);
-            if (falling && onGround)
+            if (!attacking)
             {
-                _levelManager.JumpTrigger();
-                rb.AddForce(transform.up * jumpStrength, ForceMode2D.Impulse);
+                am.SetBool("jumping", true);
+                if (falling && onGround)
+                {
+                    _levelManager.JumpTrigger();
+                    rb.AddForce(transform.up * jumpStrength, ForceMode2D.Impulse);
 
 
-            }
-            else if( onGround && !attacking)
-            {
-                _levelManager.JumpTrigger();
+                }
+                else if (onGround)
+                {
+                    _levelManager.JumpTrigger();
+                }
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && onGround)
         {
-            am.SetBool("attacking", true);
-            attacking = true;
+            am.SetBool("attacking", !attacking);
+            
         }
        
     }
 
     public void Attacking()
-    {
+    { 
+        attacking = !attacking;
        //spawn trigger?
     }
 
@@ -127,7 +130,7 @@ public class playerScript : MonoBehaviour
     }
     void FixedUpdate()
     {
-        if (moveDir != 0)
+        if (moveDir != 0 && !attacking)
             rb.velocity = new Vector2((moveDir) * runSpeed, rb.velocity.y);
 
     }
@@ -136,7 +139,7 @@ public class playerScript : MonoBehaviour
     {
         if (other.CompareTag("particle"))
         {
-            
+
             if (Red < 1.25)
             {
                 Red += .01f;
