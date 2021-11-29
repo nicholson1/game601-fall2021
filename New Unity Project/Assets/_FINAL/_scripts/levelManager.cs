@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class levelManager : MonoBehaviour
@@ -19,6 +20,7 @@ public class levelManager : MonoBehaviour
         jumpText.text = "Jumps Remaining: " + JumpsRemaining;
         _mainCamera = FindObjectOfType<Camera>();
         _fade = FindObjectOfType<Fade>();
+        _fade.gameObject.SetActive(true);
         _fade.FadeIn();
 
     }
@@ -51,12 +53,41 @@ public class levelManager : MonoBehaviour
         
     }
 
+    public IEnumerator waitThenRestart()
+    {
+        while (!_fade.done)
+        {
+            yield return new WaitForSeconds(.1f);
+        }
+
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+    public IEnumerator waitThenLoadNext()
+    {
+        while (!_fade.done)
+        {
+            yield return new WaitForSeconds(.1f);
+        }
+
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
+    public void LoadNextLevel()
+    {
+        _fade.gameObject.SetActive(true);
+        _fade.FadeOut();
+        StartCoroutine(waitThenLoadNext());
+    }
+    
+
     public void RestartLevel()
     {
 
         //fade out
+        _fade.gameObject.SetActive(true);
         _fade.FadeOut();
+        StartCoroutine(waitThenRestart());
         //restart current level
-        
+
     }
 }

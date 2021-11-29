@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Newtonsoft.Json.Serialization;
@@ -11,16 +12,36 @@ using UnityEngine.UI;
 public class MenuButtons : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler,IPointerDownHandler
 {
 
+    private GameManager _gm;
     //load scene 1
-    public void loadNextScene()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-        
-        
-        //gameObject.GetComponent<Button>().
-    }
     public Text theText;
     private bool onButton = false;
+
+    private void Start()
+    {
+        _gm = FindObjectOfType<GameManager>();
+    }
+
+    public void loadNextScene()
+    {
+        _gm._fade.gameObject.SetActive(true);
+        _gm._fade.FadeOut();
+        StartCoroutine(waitThenNext());
+    }
+    
+    
+    
+    public IEnumerator waitThenNext()
+    {
+        while (!_gm._fade.done)
+        {
+            yield return new WaitForSeconds(.1f);
+        }
+
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+    
+    
     public void OnPointerEnter(PointerEventData eventData)
     {         
         //Debug.Log("The cursor entered the selectable UI element.");

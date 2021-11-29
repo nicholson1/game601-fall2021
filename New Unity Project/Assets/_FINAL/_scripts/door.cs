@@ -11,22 +11,23 @@ using UnityEngine.UI;
 
 public class door : MonoBehaviour
 {
+    private levelManager _levelManager;
+
+    private void Start()
+    {
+        _levelManager = FindObjectOfType<levelManager>();
+    }
+
     public void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
-            loadNextScene();
+            _levelManager.LoadNextLevel();
         }
     }
 
     //load scene 1
-    public void loadNextScene()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-        
-        
-        //gameObject.GetComponent<Button>().
-    }
+    
     
     
 

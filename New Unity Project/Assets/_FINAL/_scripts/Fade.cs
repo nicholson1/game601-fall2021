@@ -11,10 +11,12 @@ public class Fade : MonoBehaviour
     private bool fadeOut = false;
     private float alpha;
     private levelManager _levelManager;
+    public bool done = false;
 
     private void Start()
     {
         _image = GetComponent<Image>();
+       // gameObject.SetActive(false);
     }
 
     private void Update()
@@ -33,13 +35,19 @@ public class Fade : MonoBehaviour
 
         if (fadeOut)
         {
-            alpha += .01f;
+            alpha += .005f;
         }
 
-        if (alpha > 1 || alpha < 0)
+        if (!done && (alpha > 1.5f || alpha < -.5f))
         {
+            if (fadeIn)
+            {
+                gameObject.SetActive(false);
+            }
             fadeIn = false;
             fadeOut = false;
+            done = true;
+            
         }
     }
 
@@ -56,13 +64,19 @@ public class Fade : MonoBehaviour
 
     public void FadeIn()
     {
+        done = false;
         fadeIn = true;
+        if (_image == null)
+        {
+            _image = GetComponent<Image>();
+        }
         _image.color = Color.black;
-        alpha = 1;
+        alpha = 1.4f;
     }
 
     public void FadeOut()
     {
+        done = false;
         fadeOut = true;
         //transparent black
         _image.color = new Color(0,0,0,0);

@@ -145,7 +145,7 @@ public class playerScript : MonoBehaviour
         if (other.CompareTag("particle"))
         {
 
-            if (Red < .75f)
+            if (Red < 1f)
             {
                 Red += .01f;
                 StopAllCoroutines();
@@ -191,14 +191,17 @@ public class playerScript : MonoBehaviour
         {
             tBalloon = Instantiate(balloon, (_levelManager._mainCamera.transform.position + new Vector3(-20, 11,10)), balloon.gameObject.transform.rotation).GetComponent<Balloon>();
         }
-        else
-        {
-            tBalloon.transform.position = _levelManager._mainCamera.transform.position + new Vector3(-20, 11,10);
-        }
+        // else
+        // {
+        //     Debug.Log(Vector2.Distance(tBalloon.transform.position, _levelManager._mainCamera.transform.position));
+        //     if (Vector2.Distance(tBalloon.transform.position, _levelManager._mainCamera.transform.position) > 50) ;
+        //     tBalloon.transform.position = _levelManager._mainCamera.transform.position + new Vector3(-20, 11, 10);
+        // }
 
-        tBalloon.speed = 3;
+        tBalloon.speed = 5;
         tBalloon._player = deathOBJ.transform;
         tBalloon.death = true;
+        deathOBJ.GetComponent<SpriteRenderer>().color = GetComponent<SpriteRenderer>().color;
 
 
         //find ballon, if no ballon make ballon;
