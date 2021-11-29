@@ -27,7 +27,7 @@ public class Balloon : MonoBehaviour
         {
             if (_player != null)
             {
-                transform.position = Vector3.MoveTowards(transform.position, _player.position, speed * Time.deltaTime);
+                transform.position = Vector3.MoveTowards(transform.position, _player.position + new Vector3(0,1f,0), speed * Time.deltaTime);
                 modifySpeed += .001f;
                 if (!death)
                 {
@@ -37,7 +37,7 @@ public class Balloon : MonoBehaviour
         }
         else
         {
-            transform.position = Vector3.MoveTowards(transform.position, transform.position + Vector3.up, speed * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position, transform.position + Vector3.one, speed * Time.deltaTime);
 
             if (!triggered && transform.position.y > _levelManager._mainCamera.transform.position.y + 15)
             {

@@ -131,6 +131,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   runSpeed: 7
   jumpStrength: 25
+  deathObj: {fileID: 6277679414310496600, guid: f0141907cc5994445a6ac012445d54b3, type: 3}
+  balloon: {fileID: 3934976111910563312, guid: 9e7fcca3cb30e4d89b074047692e917d, type: 3}
   groundDetect: {fileID: 7448198028445326600}
 --- !u!70 &7448198028738198843
 CapsuleCollider2D:

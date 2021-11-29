@@ -14,16 +14,30 @@ public class levelManager : MonoBehaviour
     public Text jumpText;
     public Camera _mainCamera;
     public Fade _fade;
+    private DoorEnter _doorEnter;
     void Start()
     {
         Enemies = FindObjectsOfType<Monster>();
+        _doorEnter = FindObjectOfType<DoorEnter>();
         jumpText.text = "Jumps Remaining: " + JumpsRemaining;
         _mainCamera = FindObjectOfType<Camera>();
         _fade = FindObjectOfType<Fade>();
         _fade.gameObject.SetActive(true);
         _fade.FadeIn();
+        StartCoroutine(waitThenOpenDoor());
 
     }
+    
+    public IEnumerator waitThenOpenDoor()
+    {
+        while (!_fade.done)
+        {
+            yield return new WaitForSeconds(.1f);
+        }
+        _doorEnter._am.SetTrigger("johnny");
+        
+    }
+    
 
     // Update is called once per frame
     public void UpdateText()

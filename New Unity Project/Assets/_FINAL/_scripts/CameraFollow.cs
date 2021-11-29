@@ -12,13 +12,13 @@ public class CameraFollow : MonoBehaviour
 
     public void Start()
     {
-        Player = FindObjectOfType<playerScript>().transform;
+        //Player = FindObjectOfType<playerScript>().transform;
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (follow)
+        if (follow && Player != null)
         {
             float dist = Vector2.Distance(Player.position, transform.position);
             //Debug.Log(dist);

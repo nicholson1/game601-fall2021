@@ -9,7 +9,7 @@ public class RandomScale : MonoBehaviour
     private float targetScale;
     void Start()
     {
-        timeToChange = Random.Range(1, 5);
+        timeToChange = Random.Range(2, 10);
     }
 
     // Update is called once per frame
