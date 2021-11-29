@@ -8,6 +8,8 @@ public class playerScript : MonoBehaviour
     private SpriteRenderer sprite;
     public float runSpeed;
     public float jumpStrength;
+    public GameObject deathObj;
+    public GameObject balloon;
     Rigidbody2D rb;
     private Animator am;
     public Transform groundDetect;
@@ -94,6 +96,8 @@ public class playerScript : MonoBehaviour
                 {
                     _levelManager.JumpTrigger();
                     rb.AddForce(transform.up * jumpStrength, ForceMode2D.Impulse);
+                    _levelManager.UpdateText();
+
 
 
                 }
@@ -125,6 +129,7 @@ public class playerScript : MonoBehaviour
             
             rb.AddForce(transform.up * jumpStrength, ForceMode2D.Impulse);
             jumping = true;
+            _levelManager.UpdateText();
 
         }
     }
@@ -140,7 +145,7 @@ public class playerScript : MonoBehaviour
         if (other.CompareTag("particle"))
         {
 
-            if (Red < 1.25)
+            if (Red < .75f)
             {
                 Red += .01f;
                 StopAllCoroutines();
@@ -148,7 +153,8 @@ public class playerScript : MonoBehaviour
             }
             else
             {
-                Debug.LogError(" u ded");
+                PlayerDeath();
+                //Debug.LogError(" u ded");
             }
             
         }
@@ -172,6 +178,33 @@ public class playerScript : MonoBehaviour
         
         sprite.color = Color.white;
         Red = 0;
+
+
+    }
+
+    public void PlayerDeath()
+    {
+        GameObject deathOBJ = Instantiate(deathObj, transform.position, transform.rotation);
+        
+        Balloon tBalloon = FindObjectOfType<Balloon>();
+        if (tBalloon == null)
+        {
+            tBalloon = Instantiate(balloon, (_levelManager._mainCamera.transform.position + new Vector3(-20, 11,10)), balloon.gameObject.transform.rotation).GetComponent<Balloon>();
+        }
+        else
+        {
+            tBalloon.transform.position = _levelManager._mainCamera.transform.position + new Vector3(-20, 11,10);
+        }
+
+        tBalloon.speed = 3;
+        tBalloon._player = deathOBJ.transform;
+        tBalloon.death = true;
+
+
+        //find ballon, if no ballon make ballon;
+        //move ballon to near player
+        //activate death object
+        gameObject.SetActive(false);
 
 
     }
