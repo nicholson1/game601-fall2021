@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class RandomScale : MonoBehaviour
 {
-    private float timeToChange = 0;
+    public float timeToChange = 0;
     public bool changing;
     private float targetScale;
     public bool ChangeOnStart;
+    public bool Chaos = false;
     void Start()
     {
         if(!ChangeOnStart)
@@ -24,16 +25,33 @@ public class RandomScale : MonoBehaviour
             if (timeToChange < 0)
             {
                 changing = true;
-                targetScale = Random.Range(0.75f, 1.25f);
+                if (Chaos)
+                {
+                    targetScale = Random.Range(0.6f, 1.4f);
+                }
+                else
+                {
+                    targetScale = Random.Range(0.8f, 1.2f);
+
+                }
             } 
         }
         else
         {
-            transform.localScale = Vector3.MoveTowards(transform.localScale, new Vector3(targetScale, targetScale, 0), .1f * Time.deltaTime );
+            transform.localScale = Vector3.MoveTowards(transform.localScale, new Vector3(targetScale, targetScale, 0), .075f * Time.deltaTime );
             if (Vector3.Distance(transform.localScale, new Vector3(targetScale, targetScale, 0)) < .01)
             {
                 changing = false;
-                timeToChange = Random.Range(1, 5);
+                if (Chaos)
+                {
+                    timeToChange = Random.Range(1, 3);
+
+                }
+                else
+                {
+                    timeToChange = Random.Range(3, 5);
+
+                }
 
             }
         }

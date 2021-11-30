@@ -5,6 +5,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using Object = System.Object;
 
 public class levelManager : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class levelManager : MonoBehaviour
     public Camera _mainCamera;
     public Fade _fade;
     private DoorEnter _doorEnter;
+    private bool chaosTriggered;
     void Start()
     {
         Enemies = FindObjectsOfType<Monster>();
@@ -27,7 +29,25 @@ public class levelManager : MonoBehaviour
         StartCoroutine(waitThenOpenDoor());
 
     }
-    
+
+    private void Update()
+    {
+        if (!chaosTriggered)
+        {
+            if (JumpsRemaining < 0)
+            {
+                RandomScale[] scales = FindObjectsOfType<RandomScale>();
+                foreach (RandomScale rs in scales)
+                {
+                    rs.Chaos = true;
+                    rs.timeToChange = 0;
+                }
+
+                chaosTriggered = true;
+            }
+        }
+    }
+
     public IEnumerator waitThenOpenDoor()
     {
         while (!_fade.done)

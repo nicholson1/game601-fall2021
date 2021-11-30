@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657838, g: 0.49641234, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -173,8 +173,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c1e05619b56c0944a6b5fe1db704e33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timeToChange: 0
   changing: 0
   ChangeOnStart: 1
+  Chaos: 0
 --- !u!483693784 &412499483
 TilemapRenderer:
   m_ObjectHideFlags: 0
@@ -2753,8 +2755,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c1e05619b56c0944a6b5fe1db704e33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timeToChange: 0
   changing: 0
   ChangeOnStart: 0
+  Chaos: 0
 --- !u!483693784 &1278999878
 TilemapRenderer:
   m_ObjectHideFlags: 0
@@ -6821,8 +6825,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c1e05619b56c0944a6b5fe1db704e33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timeToChange: 0
   changing: 0
   ChangeOnStart: 0
+  Chaos: 0
 --- !u!1 &1744745812
 GameObject:
   m_ObjectHideFlags: 0
@@ -6852,7 +6858,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e77d04b6cd85af46b162d4f087a47da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  JumpsRemaining: 1
+  JumpsRemaining: 3
   Enemies: []
   jumpText: {fileID: 566506226}
   _mainCamera: {fileID: 0}
@@ -6982,8 +6988,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c1e05619b56c0944a6b5fe1db704e33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timeToChange: 0
   changing: 0
   ChangeOnStart: 0
+  Chaos: 0
 --- !u!483693784 &1752785197
 TilemapRenderer:
   m_ObjectHideFlags: 0
