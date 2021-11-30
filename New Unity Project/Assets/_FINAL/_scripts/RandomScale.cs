@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class RandomScale : MonoBehaviour
 {
-    private float timeToChange;
+    private float timeToChange = 0;
     public bool changing;
     private float targetScale;
+    public bool ChangeOnStart;
     void Start()
     {
-        timeToChange = Random.Range(2, 10);
+        if(!ChangeOnStart)
+            timeToChange = Random.Range(2, 7);
     }
 
     // Update is called once per frame

@@ -57,6 +57,7 @@ public class Balloon : MonoBehaviour
             other.transform.SetParent(this.transform);
             other.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
             up = true;
+            GetComponentInChildren<Animator>().SetTrigger("pull");
         }
 
         if (other.CompareTag("Player"))
