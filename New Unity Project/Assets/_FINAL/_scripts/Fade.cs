@@ -29,13 +29,13 @@ public class Fade : MonoBehaviour
 
         if (fadeIn)
         {
-            alpha -= .01f;
-            
+            alpha -= 1 * Time.deltaTime; //.01f * Time.deltaTime;
+
         }
 
         if (fadeOut)
         {
-            alpha += .005f;
+            alpha += 1 * Time.deltaTime; //.01f * Time.deltaTime;
         }
 
         if (!done && (alpha > 1.5f || alpha < -.5f))

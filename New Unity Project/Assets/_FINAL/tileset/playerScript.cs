@@ -150,7 +150,7 @@ public class playerScript : MonoBehaviour
 
             if (Red < 1f)
             {
-                Red += .01f;
+                Red += .05f;
                 StopAllCoroutines();
                 StartCoroutine(FlashRed());
             }
