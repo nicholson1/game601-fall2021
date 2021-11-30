@@ -44,6 +44,8 @@ public class playerScript : MonoBehaviour
             {
                 am.SetBool("jumping", false);
                 falling = false;
+                rb.collisionDetectionMode = CollisionDetectionMode2D.Discrete;
+
             }
         }
         else
@@ -130,6 +132,7 @@ public class playerScript : MonoBehaviour
             rb.AddForce(transform.up * jumpStrength, ForceMode2D.Impulse);
             jumping = true;
             _levelManager.UpdateText();
+            rb.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
 
         }
     }

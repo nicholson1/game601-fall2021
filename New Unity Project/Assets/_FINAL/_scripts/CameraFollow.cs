@@ -23,7 +23,8 @@ public class CameraFollow : MonoBehaviour
             float dist = Vector2.Distance(Player.position, transform.position);
             //Debug.Log(dist);
             followSpeed = dist * dist + 2;
-            transform.position = Vector3.MoveTowards(transform.position, new Vector3( Player.position.x, Player.position.y, -10), Time.deltaTime * followSpeed);
+            if(dist > .05)
+                transform.position = Vector3.MoveTowards(transform.position, new Vector3( Player.position.x, Player.position.y, -10), Time.deltaTime * followSpeed);
 
         }
         
