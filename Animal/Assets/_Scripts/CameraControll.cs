@@ -28,12 +28,15 @@ public class CameraControll : MonoBehaviour
             {
                 //transform.parent.LookAt(new Vector3(transform.position.x, transform.parent.position.y, -transform.position.z));
                 transform.parent.GetComponent<PlayerMovement1>().moveAmount = Vector3.forward;
+                
+                //Vector3 difference = new Vector3(transform.parent.position.x - transform.position.x, transform.parent.position.y - transform.position.y ,transform.parent.position.z - transform.position.z );
+                //transform.localPosition = difference;
 
                 //transform.localPosition = new Vector3(0, 2, -5);
                 //transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, 0, 0);
                 //transform.localPosition = new Vector3(0, transform.localPosition.y, transform.localPosition.z);
 
-               // transform.LookAt(transform.parent.position + new Vector3(0, 1, 0));
+                //transform.LookAt(transform.parent.position + new Vector3(0, 1, 0));
             }
 
         }
