@@ -29,7 +29,7 @@ public class PlayerMovement1 : MonoBehaviour
 	private Animator am;
 	private Rigidbody rb;
 	Vector3 smoothMoveVelocity;
-	Vector3 moveAmount;
+	public Vector3 moveAmount;
 	private Vector3 rotateAmount;
 
     void Start()

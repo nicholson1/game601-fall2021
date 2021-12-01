@@ -11,33 +11,56 @@ public class AnimalInteract : MonoBehaviour
     //private Quaternion targetRotation;
 
     // Start is called before the first frame update
+    private Animator _am;
 
+    public GameObject ToolTip;
 
     private void Start()
     {
         textBox.SetActive(false);
+        _am = GetComponentInChildren<Animator>();
     }
 
     public void Interact(Transform playerPosition)
     {
         // rotate tword the person
-        Vector3 playerPos = new Vector3(playerPosition.position.x, transform.parent.position.y, playerPosition.position.z);
-        transform.parent.LookAt(playerPos, Vector3.up);
-        GetComponentInParent<Animator>().SetTrigger("eat");
+        CloseToolTip();
+
+        Vector3 playerPos = new Vector3(playerPosition.position.x, transform.position.y, playerPosition.position.z);
+        transform.LookAt(playerPos, Vector3.up);
+        _am.SetTrigger("eat");
         textBox.GetComponent<RotateTextBoxToCamera>().CameraPos = playerPosition.GetComponentInChildren<Camera>().transform;
         textBox.SetActive(true);
         // targetRotation = Quaternion.LookRotation(playerPos, Vector3.up);
         // rotateTowardPlayer = true;
 
     }
+    
+    public void ShowToolTip(Transform playerPosition)
+    {
+        
+        ToolTip.GetComponent<RotateTextBoxToCamera>().CameraPos = playerPosition.GetComponentInChildren<Camera>().transform;
+        //tool tip text . set active(true)
+        ToolTip.SetActive(true);
+    }
+
+    public void CloseToolTip()
+    {
+        ToolTip.SetActive(false);
+        // tool tip text .set active false
+    }
 
     public void Disengage()
     {
+        CloseToolTip();
+
         textBox.SetActive(false);
-        GetComponentInParent<Animator>().SetTrigger("eat");
+        _am.SetTrigger("eat");
 
 
     }
+
+  
 
 
     private void Update()

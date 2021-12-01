@@ -24,6 +24,18 @@ public class CameraControll : MonoBehaviour
 
             transform.eulerAngles =  new Vector3(transform.eulerAngles.x, transform.eulerAngles.y ,0);
 
+            if (Input.GetMouseButton(1))
+            {
+                //transform.parent.LookAt(new Vector3(transform.position.x, transform.parent.position.y, -transform.position.z));
+                transform.parent.GetComponent<PlayerMovement1>().moveAmount = Vector3.forward;
+
+                //transform.localPosition = new Vector3(0, 2, -5);
+                //transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, 0, 0);
+                //transform.localPosition = new Vector3(0, transform.localPosition.y, transform.localPosition.z);
+
+               // transform.LookAt(transform.parent.position + new Vector3(0, 1, 0));
+            }
+
         }
 
         
