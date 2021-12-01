@@ -6,9 +6,9 @@ using UnityEngine;
 public class AnimalInteract : MonoBehaviour
 {
     public GameObject textBox;
-    private bool rotateTowardPlayer = false;
-    private float rotateSpeed = .001f;
-    private Quaternion targetRotation;
+    //private bool rotateTowardPlayer = false;
+    //private float rotateSpeed = .001f;
+    //private Quaternion targetRotation;
 
     // Start is called before the first frame update
 

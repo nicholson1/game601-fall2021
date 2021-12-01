@@ -11,13 +11,10 @@ public class SetParentAndPosition : MonoBehaviour
     public Vector3 offsetScale;
     private bool moved = false;
     
-    void Start()
-    {
-        
-    }
+    
 
     // Update is called once per frame
-    void Update()
+    void PickupItem()
     {
         if(!moved)
         
