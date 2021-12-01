@@ -24,6 +24,7 @@ public class AnimalInteract : MonoBehaviour
         Vector3 playerPos = new Vector3(playerPosition.position.x, transform.parent.position.y, playerPosition.position.z);
         transform.parent.LookAt(playerPos, Vector3.up);
         GetComponentInParent<Animator>().SetTrigger("eat");
+        textBox.GetComponent<RotateTextBoxToCamera>().CameraPos = playerPosition.GetComponentInChildren<Camera>().transform;
         textBox.SetActive(true);
         // targetRotation = Quaternion.LookRotation(playerPos, Vector3.up);
         // rotateTowardPlayer = true;
