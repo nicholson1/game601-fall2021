@@ -38,6 +38,21 @@ public class ItemCarry : MonoBehaviour
                 }
             }
         }
+
+        if (item1 != null)
+        {
+            if (Input.GetKeyDown(KeyCode.Alpha1))
+            {
+                DropItem1();
+            }
+        }
+        if (item2 != null)
+        {
+            if (Input.GetKeyDown(KeyCode.Alpha2))
+            {
+                DropItem2();
+            }
+        }
     }
     
     private void OnTriggerEnter(Collider other)
@@ -67,6 +82,22 @@ public class ItemCarry : MonoBehaviour
             }
             
         }
+    }
+
+    private void DropItem1()
+    {
+        item1.transform.localScale -= item1.offsetScale;
+        item1.transform.SetParent(transform.parent.parent);
+        item1.transform.eulerAngles = Vector3.zero;
+        item1 = null;
+    }
+    private void DropItem2()
+    {
+        item2.transform.localScale -= item2.offsetScale;
+        item2.transform.SetParent(transform.parent.parent);
+        item2.transform.eulerAngles = Vector3.zero;
+
+        item2 = null;
     }
 
 
