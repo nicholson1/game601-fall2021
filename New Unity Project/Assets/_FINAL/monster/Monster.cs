@@ -38,10 +38,12 @@ public class Monster : MonoBehaviour
     void Update()
     {
         RaycastHit2D hit = Physics2D.Raycast(groundDetect.position, -Vector2.up, .25f);
+        RaycastHit2D hitforward = Physics2D.Raycast(groundDetect.position, Vector2.right, .25f);
+
         
         //LEFT
         //start walking left
-        if (walkingRight && hit.collider == null)
+        if (walkingRight && (hit.collider == null || hitforward.collider != null))
         {
             
             walkingRight = false;
@@ -75,7 +77,7 @@ public class Monster : MonoBehaviour
 
         //RIGHT
         //start walking right
-        else if (walkingLeft && hit.collider == null)
+        else if (walkingLeft && (hit.collider == null || hitforward.collider != null))
         {
             walkingRight = true;
             
