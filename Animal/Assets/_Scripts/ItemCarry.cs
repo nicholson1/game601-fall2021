@@ -85,17 +85,20 @@ public class ItemCarry : MonoBehaviour
     }
 
     private void DropItem1()
+
     {
-        item1.transform.localScale -= item1.offsetScale;
+        item1.transform.position = transform.parent.position + Vector3.forward + Vector3.up;
+
         item1.transform.SetParent(transform.parent.parent);
-        item1.transform.eulerAngles = Vector3.zero;
+        item1.Drop();
         item1 = null;
     }
     private void DropItem2()
-    {
-        item2.transform.localScale -= item2.offsetScale;
+    {        
+        item2.transform.position = transform.parent.position + Vector3.forward + Vector3.up;
+
         item2.transform.SetParent(transform.parent.parent);
-        item2.transform.eulerAngles = Vector3.zero;
+        item2.Drop();
 
         item2 = null;
     }

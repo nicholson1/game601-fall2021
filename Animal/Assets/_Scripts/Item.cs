@@ -29,6 +29,9 @@ public class Item : MonoBehaviour
         
         {
             transform.SetParent(parentToSet);
+            GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+            GetComponent<Rigidbody>().detectCollisions = false;
+
             transform.localPosition = Vector3.zero + offsetPos;
             transform.localEulerAngles = Vector3.zero + offsetRot;
             transform.localScale = Vector3.one + offsetScale;
@@ -37,6 +40,18 @@ public class Item : MonoBehaviour
             
         }
 
+    }
+
+    public void Drop()
+    {
+        GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+        GetComponent<Rigidbody>().detectCollisions = true;
+
+
+
+        moved = false;
+        transform.eulerAngles = Vector3.zero;
+        transform.localScale -= offsetScale;
     }
 
     public void ShowToolTip(Transform playerPosition)
