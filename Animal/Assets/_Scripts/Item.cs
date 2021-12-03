@@ -91,7 +91,8 @@ public class Item : MonoBehaviour
         Cabbage,
         Cauliflower,
         Cheese,
-        Pumpkin
+        Pumpkin, 
+        Bucket
 
     }
 }
