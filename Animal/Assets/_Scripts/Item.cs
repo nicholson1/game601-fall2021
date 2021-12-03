@@ -7,7 +7,7 @@ public class Item : MonoBehaviour
 {
     public Itemtype type;
     public GameObject ToolTip;
-    public GameObject Model;
+   // public GameObject Model;
     
     //public Transform parentToSet;
     public Vector3 offsetPos;
@@ -18,9 +18,19 @@ public class Item : MonoBehaviour
 
     public void Start()
     {
-        GameObject model = Instantiate(Model, transform);
-        model.name = "ItemModel";
-        model.transform.rotation = transform.rotation;
+        // GameObject model = Instantiate(Model, transform);
+        // model.name = "ItemModel";
+        // model.transform.rotation = transform.rotation;
+    }
+
+    public void Update()
+    {
+        if (moved)
+        {
+            transform.localEulerAngles = Vector3.zero + offsetRot;
+            transform.localPosition = Vector3.zero + offsetPos;
+        }
+         
     }
 
     public void PickupItem(Transform parentToSet)
@@ -28,6 +38,8 @@ public class Item : MonoBehaviour
         if(!moved)
         
         {
+            GetComponentInChildren<MeshRenderer>().transform.eulerAngles = transform.eulerAngles;
+
             transform.SetParent(parentToSet);
             GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
             GetComponent<Rigidbody>().detectCollisions = false;
@@ -74,6 +86,12 @@ public class Item : MonoBehaviour
         Meat,
         Carrot,
         Medicine,
-        Bread
+        Bread,
+        Turnip,
+        Cabbage,
+        Cauliflower,
+        Cheese,
+        Pumpkin
+
     }
 }

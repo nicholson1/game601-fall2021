@@ -15,22 +15,32 @@ public class AnimalInteract : MonoBehaviour
 
     public GameObject ToolTip;
 
+    private AnimalRandomMovement _ARM;
+
     private void Start()
     {
         textBox.SetActive(false);
         _am = GetComponentInChildren<Animator>();
+        _ARM = GetComponent<AnimalRandomMovement>();
     }
 
     public void Interact(Transform playerPosition)
     {
+        if (_ARM != null)
+        {
+            _ARM.StopARM();
+        }
         // rotate tword the person
         CloseToolTip();
-
         Vector3 playerPos = new Vector3(playerPosition.position.x, transform.position.y, playerPosition.position.z);
         transform.LookAt(playerPos, Vector3.up);
         _am.SetTrigger("eat");
         textBox.GetComponent<RotateTextBoxToCamera>().CameraPos = playerPosition.GetComponentInChildren<Camera>().transform;
         textBox.SetActive(true);
+
+        
+        
+        
         // targetRotation = Quaternion.LookRotation(playerPos, Vector3.up);
         // rotateTowardPlayer = true;
 
@@ -56,6 +66,10 @@ public class AnimalInteract : MonoBehaviour
 
         textBox.SetActive(false);
         _am.SetTrigger("eat");
+        if (_ARM != null)
+        {
+            _ARM.Stop = false;
+        }
 
 
     }

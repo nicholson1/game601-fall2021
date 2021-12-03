@@ -856,6 +856,7 @@ SkinnedMeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -1789,7 +1790,7 @@ Animator:
   m_GameObject: {fileID: 1843147027273832}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: e7beebd2f2ea21446a9bea6a7973a5ea, type: 3}
-  m_Controller: {fileID: 9100000, guid: f918c2393b863484188872ce36157311, type: 2}
+  m_Controller: {fileID: 9100000, guid: 3d9bb73c700c7264fbc022d151811838, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

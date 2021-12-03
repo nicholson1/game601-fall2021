@@ -10,7 +10,6 @@ public class CameraControll : MonoBehaviour
     {
         //camera zoom
         float zoom = (Input.GetAxis("Mouse ScrollWheel"));
-        Debug.Log(zoom);
         if (zoom != 0)
         {
             transform.position = Vector3.MoveTowards(transform.position,

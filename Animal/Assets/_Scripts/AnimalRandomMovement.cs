@@ -1,0 +1,141 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Diagnostics;
+using UnityEditor;
+using UnityEngine;
+using Debug = UnityEngine.Debug;
+using Random = UnityEngine.Random;
+
+public class AnimalRandomMovement : MonoBehaviour
+{
+    // Start is called before the first frame update
+
+    public float WalkSpeed;
+    public float RunSpeed;
+    public float MaxDistance;
+
+    public bool CanRun;
+
+    public bool Stop = false;
+    
+    public float minWaitTime;
+    public float maxWaitTime;
+    
+    public float minMoveTime;
+    public float maxMoveTime;
+
+    private float speed;
+    private Vector3 MoveDirection;
+    
+    private Vector3 StartPosition;
+    private Animator _am;
+
+    private float TimeToNext;
+    private bool Moving;
+
+    void Start()
+    {
+        _am = GetComponentInChildren<Animator>();
+        StartPosition = transform.position;
+
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if(!Stop)
+        {
+            TimeToNext -= Time.deltaTime;
+            if (TimeToNext < 0)
+            {
+                RandomMove();
+            }
+
+            if (speed > 0)
+            {
+                transform.position = Vector3.MoveTowards(transform.position, transform.position + MoveDirection,
+                    speed * Time.deltaTime);
+                transform.LookAt(transform.position + MoveDirection);
+
+
+
+            }
+
+            if (Vector3.Distance(transform.position, StartPosition) > MaxDistance)
+            {
+                //Debug.LogError("Too Far turn around");
+                MoveDirection = new Vector3(-MoveDirection.x, 0, -MoveDirection.y).normalized;
+                transform.LookAt(transform.position + MoveDirection);
+
+
+            }
+        }
+        
+           
+        
+    }
+
+    void RandomMove()
+    {
+        //Debug.Log("changing direction");
+        int pick = Random.Range(1,4);
+        MoveDirection = new Vector3(Random.Range(-5, 5), 0, Random.Range(-5,5)).normalized;
+        if (pick == 1)
+        {
+            //idle
+            speed = 0;
+            _am.SetTrigger("eat");
+            TimeToNext = Random.Range(minWaitTime, maxWaitTime);
+
+        }
+        else if (pick == 2)
+        {
+            //walk
+            speed = WalkSpeed;
+            TimeToNext = Random.Range(minMoveTime, maxMoveTime);
+
+        }
+        else
+        {
+            //run
+            TimeToNext = Random.Range(minMoveTime, maxMoveTime);
+
+            if (CanRun)
+            {
+                speed = RunSpeed;
+            }
+            else
+            {
+                speed = WalkSpeed;
+            }
+
+        }
+        
+        _am.SetFloat("movement", speed);
+        transform.LookAt(transform.position + MoveDirection);
+        
+
+    }
+
+    private void OnCollisionEnter(Collision other)
+    {
+        if (!other.collider.CompareTag("Ground"))
+        {
+            //Debug.LogWarning("Hit Object");
+            MoveDirection = new Vector3(-MoveDirection.x, 0, -MoveDirection.y).normalized;
+
+
+            transform.LookAt(MoveDirection);
+        }
+    }
+
+    public void StopARM()
+    {
+        Stop = false;
+        speed = 0;
+        _am.SetFloat("movement", speed);
+
+        
+    }
+}

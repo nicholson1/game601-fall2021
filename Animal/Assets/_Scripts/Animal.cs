@@ -12,6 +12,9 @@ public class Animal : MonoBehaviour
         Bear,
         Chicken,
         Wolf,
-        Cow
+        Cow, 
+        Rabbit,
+        Rat,
+        BabyRabbit
     }
 }
