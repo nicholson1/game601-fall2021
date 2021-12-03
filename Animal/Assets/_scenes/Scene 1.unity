@@ -7456,7 +7456,7 @@ PrefabInstance:
     - target: {fileID: 1713364461013772176, guid: 75558ffdf76bfb946a8cf82be9c58160,
         type: 3}
       propertyPath: CustomTip
-      value: Have you seen my dad?
+      value: Jack the Bunny
       objectReference: {fileID: 0}
     - target: {fileID: 4687933391920879024, guid: 75558ffdf76bfb946a8cf82be9c58160,
         type: 3}
@@ -7522,6 +7522,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Constraints
       value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 6032330872225787891, guid: 75558ffdf76bfb946a8cf82be9c58160,
+        type: 3}
+      propertyPath: m_Text
+      value: Have you seen my Dad?
+      objectReference: {fileID: 0}
+    - target: {fileID: 6032330872225787891, guid: 75558ffdf76bfb946a8cf82be9c58160,
+        type: 3}
+      propertyPath: m_FontData.m_BestFit
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7067661553006045528, guid: 75558ffdf76bfb946a8cf82be9c58160,
         type: 3}
@@ -10607,7 +10617,7 @@ PrefabInstance:
     - target: {fileID: 1713364461013772176, guid: 75558ffdf76bfb946a8cf82be9c58160,
         type: 3}
       propertyPath: CustomTip
-      value: Have you seen my dad?
+      value: Jack The Bunny
       objectReference: {fileID: 0}
     - target: {fileID: 4687933391920879024, guid: 75558ffdf76bfb946a8cf82be9c58160,
         type: 3}
@@ -10673,6 +10683,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Constraints
       value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 6032330872225787891, guid: 75558ffdf76bfb946a8cf82be9c58160,
+        type: 3}
+      propertyPath: m_Text
+      value: Have you seen my Dad?
+      objectReference: {fileID: 0}
+    - target: {fileID: 6032330872225787891, guid: 75558ffdf76bfb946a8cf82be9c58160,
+        type: 3}
+      propertyPath: m_FontData.m_BestFit
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7067661553006045528, guid: 75558ffdf76bfb946a8cf82be9c58160,
         type: 3}
