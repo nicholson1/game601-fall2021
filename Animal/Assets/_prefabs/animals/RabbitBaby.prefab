@@ -177,6 +177,11 @@ PrefabInstance:
       propertyPath: m_Center.y
       value: 0.1
       objectReference: {fileID: 0}
+    - target: {fileID: 2529758731517752296, guid: d71921e018465f44080328e966d02b68,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 122
+      objectReference: {fileID: 0}
     - target: {fileID: 3576496143083751768, guid: d71921e018465f44080328e966d02b68,
         type: 3}
       propertyPath: m_SizeDelta.x

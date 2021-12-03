@@ -16,12 +16,14 @@ public class AnimalInteract : MonoBehaviour
     public GameObject ToolTip;
 
     private AnimalRandomMovement _ARM;
+    private AnimalPathedMovement _APM;
 
     private void Start()
     {
         textBox.SetActive(false);
         _am = GetComponentInChildren<Animator>();
         _ARM = GetComponent<AnimalRandomMovement>();
+        _APM = GetComponent<AnimalPathedMovement>();
     }
 
     public void Interact(Transform playerPosition)
@@ -29,6 +31,10 @@ public class AnimalInteract : MonoBehaviour
         if (_ARM != null)
         {
             _ARM.StopARM();
+        }
+        if (_APM != null)
+        {
+            _APM.StopPathedMovement();
         }
         // rotate tword the person
         CloseToolTip();
@@ -69,6 +75,10 @@ public class AnimalInteract : MonoBehaviour
         if (_ARM != null)
         {
             _ARM.Stop = false;
+        }
+        if (_APM != null)
+        {
+            _APM.Stop = false;
         }
 
 

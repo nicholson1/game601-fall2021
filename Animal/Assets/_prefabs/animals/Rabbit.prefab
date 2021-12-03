@@ -1,5 +1,84 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &519857885962357550
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 4687933391920879024}
+    m_Modifications:
+    - target: {fileID: 519857886363133787, guid: 94a5887e243997f4fb982948ed6e3e04,
+        type: 3}
+      propertyPath: m_Name
+      value: Quest
+      objectReference: {fileID: 0}
+    - target: {fileID: 519857886363133788, guid: 94a5887e243997f4fb982948ed6e3e04,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 519857886363133788, guid: 94a5887e243997f4fb982948ed6e3e04,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 519857886363133788, guid: 94a5887e243997f4fb982948ed6e3e04,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 519857886363133788, guid: 94a5887e243997f4fb982948ed6e3e04,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 519857886363133788, guid: 94a5887e243997f4fb982948ed6e3e04,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 519857886363133788, guid: 94a5887e243997f4fb982948ed6e3e04,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 519857886363133788, guid: 94a5887e243997f4fb982948ed6e3e04,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 519857886363133788, guid: 94a5887e243997f4fb982948ed6e3e04,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 519857886363133788, guid: 94a5887e243997f4fb982948ed6e3e04,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 519857886363133788, guid: 94a5887e243997f4fb982948ed6e3e04,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 519857886363133788, guid: 94a5887e243997f4fb982948ed6e3e04,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2791577335215603729, guid: 94a5887e243997f4fb982948ed6e3e04,
+        type: 3}
+      propertyPath: Requirments.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2791577335215603729, guid: 94a5887e243997f4fb982948ed6e3e04,
+        type: 3}
+      propertyPath: Requirments.Array.data[1]
+      value: 
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 94a5887e243997f4fb982948ed6e3e04, type: 3}
 --- !u!1001 &3837573650537798256
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -90,17 +169,17 @@ PrefabInstance:
     - target: {fileID: 2529758731517752292, guid: d71921e018465f44080328e966d02b68,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 78.35
       objectReference: {fileID: 0}
     - target: {fileID: 2529758731517752292, guid: d71921e018465f44080328e966d02b68,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -11.17
       objectReference: {fileID: 0}
     - target: {fileID: 2529758731517752292, guid: d71921e018465f44080328e966d02b68,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -72.09
       objectReference: {fileID: 0}
     - target: {fileID: 2529758731517752292, guid: d71921e018465f44080328e966d02b68,
         type: 3}
@@ -110,7 +189,7 @@ PrefabInstance:
     - target: {fileID: 2529758731517752292, guid: d71921e018465f44080328e966d02b68,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 2529758731517752292, guid: d71921e018465f44080328e966d02b68,
         type: 3}
@@ -120,7 +199,7 @@ PrefabInstance:
     - target: {fileID: 2529758731517752292, guid: d71921e018465f44080328e966d02b68,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 2529758731517752292, guid: d71921e018465f44080328e966d02b68,
         type: 3}
@@ -157,10 +236,20 @@ PrefabInstance:
       propertyPath: m_Center.y
       value: 0.2
       objectReference: {fileID: 0}
+    - target: {fileID: 2529758731517752296, guid: d71921e018465f44080328e966d02b68,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 122
+      objectReference: {fileID: 0}
     - target: {fileID: 3576496143451657865, guid: d71921e018465f44080328e966d02b68,
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 1.047
+      objectReference: {fileID: 0}
+    - target: {fileID: 8489979480107712964, guid: d71921e018465f44080328e966d02b68,
+        type: 3}
+      propertyPath: CustomTip
+      value: Peter the Rabbit
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2529758731517752294, guid: d71921e018465f44080328e966d02b68, type: 3}
@@ -168,6 +257,12 @@ PrefabInstance:
 --- !u!1 &4687933391920879025 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2529758731517752293, guid: d71921e018465f44080328e966d02b68,
+    type: 3}
+  m_PrefabInstance: {fileID: 7067661553812383316}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &4687933391920879024 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2529758731517752292, guid: d71921e018465f44080328e966d02b68,
     type: 3}
   m_PrefabInstance: {fileID: 7067661553812383316}
   m_PrefabAsset: {fileID: 0}
@@ -195,6 +290,7 @@ MonoBehaviour:
   CanRun: 0
   Stop: 0
   minWaitTime: 5
-  maxWaitTime: 20
+  maxWaitTime: 15
   minMoveTime: 2
   maxMoveTime: 3
+  Activated: 1

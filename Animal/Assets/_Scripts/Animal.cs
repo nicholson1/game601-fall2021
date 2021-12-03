@@ -15,6 +15,8 @@ public class Animal : MonoBehaviour
         Cow, 
         Rabbit,
         Rat,
-        BabyRabbit
+        BabyRabbit,
+        Deer
+        
     }
 }

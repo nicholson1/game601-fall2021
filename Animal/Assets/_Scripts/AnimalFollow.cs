@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.UIElements;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class AnimalFollow : MonoBehaviour
 {
@@ -13,24 +14,31 @@ public class AnimalFollow : MonoBehaviour
 
     private Vector3 targetPos;
     private Animator _am;
+    private Vector3 offset;
 
     public Item.Itemtype[] itemsToFollow;
 
     private Rigidbody _rb;
+    private bool is_following;
 
     private void Start()
     {
         _rb = GetComponent<Rigidbody>();
+        _am = GetComponentInChildren<Animator>();
     }
 
 
     private void Update()
     {
-        if (_am == null)
+        if (is_following != following)
         {
-            _am = GetComponentInChildren<Animator>();
+            is_following = following;
+            offset = new Vector3(Random.Range(-.5f,.5f), 0, Random.Range(-.5f,.5f));
+            
         }
-        else if (following)
+        
+        
+        if (following)
         {
             
             if (objectToFollow != null)
@@ -38,11 +46,11 @@ public class AnimalFollow : MonoBehaviour
             {
                 targetPos = new Vector3(objectToFollow.transform.position.x, transform.position.y,
                     objectToFollow.transform.position.z);
-                if (Vector3.Distance(targetPos + Vector3.back, transform.position) > 4)
+                if (Vector3.Distance(targetPos + Vector3.back + offset, transform.position) > 4)
                 {
                     _am.SetFloat("movement", speed);
                     transform.LookAt(targetPos);
-                    transform.position = Vector3.MoveTowards(transform.position , targetPos + Vector3.back, speed * Time.deltaTime);
+                    transform.position = Vector3.MoveTowards(transform.position , targetPos + Vector3.back +offset, speed * Time.deltaTime);
                 }
                 else
                 {

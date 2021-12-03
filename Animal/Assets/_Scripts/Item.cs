@@ -13,7 +13,7 @@ public class Item : MonoBehaviour
     public Vector3 offsetPos;
     public Vector3 offsetRot;
     public Vector3 offsetScale;
-    private bool moved = false;
+    public bool pickedUp = false;
 
 
     public void Start()
@@ -25,7 +25,7 @@ public class Item : MonoBehaviour
 
     public void Update()
     {
-        if (moved)
+        if (pickedUp)
         {
             transform.localEulerAngles = Vector3.zero + offsetRot;
             transform.localPosition = Vector3.zero + offsetPos;
@@ -35,7 +35,7 @@ public class Item : MonoBehaviour
 
     public void PickupItem(Transform parentToSet)
     {
-        if(!moved)
+        if(!pickedUp)
         
         {
             GetComponentInChildren<MeshRenderer>().transform.eulerAngles = transform.eulerAngles;
@@ -47,7 +47,7 @@ public class Item : MonoBehaviour
             transform.localPosition = Vector3.zero + offsetPos;
             transform.localEulerAngles = Vector3.zero + offsetRot;
             transform.localScale = Vector3.one + offsetScale;
-            moved = true;
+            pickedUp = true;
             CloseToolTip();
             
         }
@@ -61,7 +61,7 @@ public class Item : MonoBehaviour
 
 
 
-        moved = false;
+        pickedUp = false;
         transform.eulerAngles = Vector3.zero;
         transform.localScale -= offsetScale;
     }
@@ -92,7 +92,8 @@ public class Item : MonoBehaviour
         Cauliflower,
         Cheese,
         Pumpkin, 
-        Bucket
+        Bucket,
+        Pear,
 
     }
 }

@@ -7,13 +7,12 @@ using UnityEngine;
 using Debug = UnityEngine.Debug;
 using Random = UnityEngine.Random;
 
-public class AnimalRandomMovement : MonoBehaviour
+public class AnimalPathedMovement : MonoBehaviour
 {
     // Start is called before the first frame update
 
     public float WalkSpeed;
     public float RunSpeed;
-    public float MaxDistance;
 
     public bool CanRun;
 
@@ -28,7 +27,6 @@ public class AnimalRandomMovement : MonoBehaviour
     private float speed;
     private Vector3 MoveDirection;
     
-    private Vector3 StartPosition;
     private Animator _am;
     private AnimalFollow _AF;
 
@@ -36,15 +34,19 @@ public class AnimalRandomMovement : MonoBehaviour
     private bool Moving;
     private bool is_following;
     private Rigidbody _rb;
-    public bool Activated = true;
+
+    public GameObject myPath;
+    private Transform[] myPoints;
+    private int currentIndex = 0;
 
     void Start()
     {
         _am = GetComponentInChildren<Animator>();
         _AF = GetComponent<AnimalFollow>();
-        StartPosition = transform.position;
         _rb = GetComponent<Rigidbody>();
-        GetRandomPosition();
+
+        myPoints = myPath.GetComponentsInChildren<Transform>();
+        
 
 
     }
@@ -52,17 +54,13 @@ public class AnimalRandomMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        _am.SetFloat("movement", speed);
 
         if (is_following != _AF.following)
         {
             is_following = _AF.following;
-            StartPosition = transform.position;
-            Debug.Log("New StartPos");
         }
         
-        
-        if(!Stop && !is_following && Activated)
+        if(!Stop && !is_following)
         {
             TimeToNext -= Time.deltaTime;
             if (TimeToNext < 0)
@@ -72,48 +70,43 @@ public class AnimalRandomMovement : MonoBehaviour
 
             if (speed > 0)
             {
-                transform.position = Vector3.MoveTowards(transform.position, MoveDirection,
+                transform.position = Vector3.MoveTowards(transform.position, myPoints[currentIndex].position,
                     speed * Time.deltaTime);
-                transform.LookAt(new Vector3(MoveDirection.x, transform.position.y, MoveDirection.z));
-                
-                if (new Vector2(transform.position.x - MoveDirection.x, transform.position.z - MoveDirection.z).magnitude <= 1)
-
-                {
-                    //pause
-                    Pause();
-                    //new random direction;
-                    GetRandomPosition();
-                
-                    //MoveDirection = new Vector3(StartPosition.x - transform.position.x, 0, StartPosition.z - StartPosition.z);
-                    //MoveDirection = new Vector3(MoveDirection.x *-1, 0, MoveDirection.y * -1).normalized;
-                    //transform.LookAt(transform.position + MoveDirection);
-
-                    //speed = 0;
-
-
-                }
+                transform.LookAt(new Vector3(myPoints[currentIndex].position.x, transform.position.y,
+                    myPoints[currentIndex].position.z));
 
 
 
             }
 
-            
+            if (new Vector2(transform.position.x - myPoints[currentIndex].position.x, transform.position.z - myPoints[currentIndex].position.z).magnitude <= 2)
+            {
+               //pause
+               Pause();
+               
+               currentIndex += 1;
+               if (currentIndex > myPoints.Length - 1)
+               {
+                   currentIndex = 0;
+               }
+               
+
+
+            }
         }
+        _am.SetFloat("movement", speed);
+
         
            
         
     }
+
     void Pause()
     {
         speed = 0;
         _am.SetTrigger("eat");
         TimeToNext = maxWaitTime;
         
-    }
-
-    void GetRandomPosition()
-    {
-        MoveDirection = new Vector3(Random.Range(StartPosition.x - MaxDistance, StartPosition.x + MaxDistance), 0, Random.Range(StartPosition.z - MaxDistance, StartPosition.z + MaxDistance  ));
     }
 
     void RandomMove()
@@ -158,19 +151,7 @@ public class AnimalRandomMovement : MonoBehaviour
 
     }
 
-    private void OnCollisionEnter(Collision other)
-    {
-        if (!other.collider.CompareTag("Ground"))
-        {
-            //Debug.LogWarning("Hit Object");
-            MoveDirection = new Vector3(-MoveDirection.x, 0, -MoveDirection.y).normalized;
-
-
-            transform.LookAt(MoveDirection);
-        }
-    }
-
-    public void StopARM()
+    public void StopPathedMovement()
     {
         Stop = true;
         speed = 0;
