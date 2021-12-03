@@ -51,6 +51,7 @@ public class playerScript : MonoBehaviour
         else
         {
             onGround = false;
+            rb.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
         }
         if (Mathf.Abs(Input.GetAxis("Horizontal")) > 0.01f )
         {
@@ -76,14 +77,13 @@ public class playerScript : MonoBehaviour
             GetComponent<SpriteRenderer>().flipX = true;
         }
 
-        if (jumping)
-        {
-            if (rb.velocity.y < 0)
+        
+            if (rb.velocity.y < -.1f)
             {
                 jumping = false;
                 falling = true;
             }
-        }
+        
 
        
         

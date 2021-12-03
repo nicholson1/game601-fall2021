@@ -58,6 +58,8 @@ public class Balloon : MonoBehaviour
             other.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
             up = true;
             GetComponentInChildren<Animator>().SetTrigger("pull");
+            GetComponentInChildren<SpriteRenderer>().sortingOrder = -1;
+            other.GetComponent<SpriteRenderer>().sortingOrder = -1;
         }
 
         if (other.CompareTag("Player"))
