@@ -58,7 +58,7 @@ public class AnimalRandomMovement : MonoBehaviour
         {
             is_following = _AF.following;
             StartPosition = transform.position;
-            Debug.Log("New StartPos");
+            GetRandomPosition();
         }
         
         
@@ -160,10 +160,10 @@ public class AnimalRandomMovement : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-        if (!other.collider.CompareTag("Ground"))
+        if (!other.collider.CompareTag("Ground") && !other.collider.CompareTag("Item"))
         {
             //Debug.LogWarning("Hit Object");
-            MoveDirection = new Vector3(-MoveDirection.x, 0, -MoveDirection.y).normalized;
+            MoveDirection = new Vector3(-MoveDirection.x, 0, -MoveDirection.y);
 
 
             transform.LookAt(MoveDirection);
@@ -176,5 +176,13 @@ public class AnimalRandomMovement : MonoBehaviour
         speed = 0;
 
         
+    }
+
+    public void SpecificMovment(Vector3 target, float timeToChill)
+    {
+        speed = WalkSpeed;
+        MoveDirection = target;
+        transform.LookAt(MoveDirection);
+        TimeToNext = timeToChill;
     }
 }

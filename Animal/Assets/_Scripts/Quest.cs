@@ -11,7 +11,6 @@ public class Quest : MonoBehaviour
     public GameObject QuestIcon;
 
     public bool Completed;
-    public String CompletedText;
     public GameObject CompleteQuestParticle;
 
     private void Update()
@@ -77,6 +76,7 @@ public class Quest : MonoBehaviour
         AnimalPathedMovement _APM = animal.GetComponent<AnimalPathedMovement>();
         AnimalFollow _AF = animal.GetComponent<AnimalFollow>();
         AnimalRandomMovement _ARM = animal.GetComponent<AnimalRandomMovement>();
+        AnimalQuestSpecial _AQS = animal.GetComponent<AnimalQuestSpecial>();
 
         if (_APM != null)
         {
@@ -87,11 +87,19 @@ public class Quest : MonoBehaviour
             _AF.following = false;
         }
 
-        if (_ARM != null)
+        if (_AQS != null)
         {
-            _ARM.Activated = true;
-            _ARM.MaxDistance = 3;
+            _AQS.QuestSpecialAction(Requirments);
         }
+        
+        
+        // //do after special
+        //
+        // if (_ARM != null)
+        // {
+        //     _ARM.Activated = true;
+        //     _ARM.MaxDistance = 3;
+        // }
 
     }
 
