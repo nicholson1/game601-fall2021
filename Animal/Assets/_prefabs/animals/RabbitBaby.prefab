@@ -82,7 +82,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 808472332, guid: d71921e018465f44080328e966d02b68, type: 3}
       propertyPath: itemsToFollow.Array.size
-      value: 0
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 808472332, guid: d71921e018465f44080328e966d02b68, type: 3}
+      propertyPath: itemsToFollow.Array.data[0]
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 808472332, guid: d71921e018465f44080328e966d02b68, type: 3}
+      propertyPath: itemsToFollow.Array.data[1]
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 1946599377461702296, guid: d71921e018465f44080328e966d02b68,
         type: 3}
@@ -169,6 +177,16 @@ PrefabInstance:
       propertyPath: m_Center.y
       value: 0.1
       objectReference: {fileID: 0}
+    - target: {fileID: 3576496143083751768, guid: d71921e018465f44080328e966d02b68,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3576496143083751847, guid: d71921e018465f44080328e966d02b68,
+        type: 3}
+      propertyPath: m_Text
+      value: Have you seen my Mom?
+      objectReference: {fileID: 0}
     - target: {fileID: 3576496143451657865, guid: d71921e018465f44080328e966d02b68,
         type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -177,9 +195,36 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 2529758731517752294, guid: d71921e018465f44080328e966d02b68, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: d71921e018465f44080328e966d02b68, type: 3}
+--- !u!1 &4687933391920879025 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2529758731517752293, guid: d71921e018465f44080328e966d02b68,
+    type: 3}
+  m_PrefabInstance: {fileID: 7067661553812383316}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2354215598973214456 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4809486105237223596, guid: d71921e018465f44080328e966d02b68,
     type: 3}
   m_PrefabInstance: {fileID: 7067661553812383316}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &-855836380047377290
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4687933391920879025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c15153b0e056d24885d7bb43d6af2fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  WalkSpeed: 1
+  RunSpeed: 3.1
+  MaxDistance: 10
+  CanRun: 1
+  Stop: 0
+  minWaitTime: 5
+  maxWaitTime: 10
+  minMoveTime: 10
+  maxMoveTime: 15

@@ -16,8 +16,14 @@ public class AnimalFollow : MonoBehaviour
 
     public Item.Itemtype[] itemsToFollow;
 
-    
-    
+    private Rigidbody _rb;
+
+    private void Start()
+    {
+        _rb = GetComponent<Rigidbody>();
+    }
+
+
     private void Update()
     {
         if (_am == null)
@@ -26,6 +32,7 @@ public class AnimalFollow : MonoBehaviour
         }
         else if (following)
         {
+            
             if (objectToFollow != null)
 
             {
@@ -33,7 +40,7 @@ public class AnimalFollow : MonoBehaviour
                     objectToFollow.transform.position.z);
                 if (Vector3.Distance(targetPos + Vector3.back, transform.position) > 4)
                 {
-                    _am.SetFloat("movement", 1);
+                    _am.SetFloat("movement", speed);
                     transform.LookAt(targetPos);
                     transform.position = Vector3.MoveTowards(transform.position , targetPos + Vector3.back, speed * Time.deltaTime);
                 }

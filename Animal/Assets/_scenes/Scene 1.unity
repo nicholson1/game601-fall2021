@@ -165,7 +165,7 @@ PrefabInstance:
     - target: {fileID: 1688089206814675702, guid: 6d5ac1fc89dcacb4399e5f85d2869688,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.181054
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1688089206814675702, guid: 6d5ac1fc89dcacb4399e5f85d2869688,
         type: 3}
@@ -4036,7 +4036,7 @@ PrefabInstance:
     - target: {fileID: 1377404151979473427, guid: 9894ed1a842395641b09776edfd8a488,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 136.9
+      value: 231.3
       objectReference: {fileID: 0}
     - target: {fileID: 1377404151979473427, guid: 9894ed1a842395641b09776edfd8a488,
         type: 3}
@@ -4046,7 +4046,7 @@ PrefabInstance:
     - target: {fileID: 1377404151979473427, guid: 9894ed1a842395641b09776edfd8a488,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 3.1
+      value: 134.7
       objectReference: {fileID: 0}
     - target: {fileID: 1377404151979473427, guid: 9894ed1a842395641b09776edfd8a488,
         type: 3}
@@ -7448,6 +7448,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 800894200}
     m_Modifications:
+    - target: {fileID: -855836380047377290, guid: 75558ffdf76bfb946a8cf82be9c58160,
+        type: 3}
+      propertyPath: MaxDistance
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1713364461013772176, guid: 75558ffdf76bfb946a8cf82be9c58160,
+        type: 3}
+      propertyPath: CustomTip
+      value: Have you seen my dad?
+      objectReference: {fileID: 0}
     - target: {fileID: 4687933391920879024, guid: 75558ffdf76bfb946a8cf82be9c58160,
         type: 3}
       propertyPath: m_RootOrder
@@ -7456,17 +7466,17 @@ PrefabInstance:
     - target: {fileID: 4687933391920879024, guid: 75558ffdf76bfb946a8cf82be9c58160,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 65.30791
+      value: -14.27803
       objectReference: {fileID: 0}
     - target: {fileID: 4687933391920879024, guid: 75558ffdf76bfb946a8cf82be9c58160,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -9.164132
+      value: -0.99
       objectReference: {fileID: 0}
     - target: {fileID: 4687933391920879024, guid: 75558ffdf76bfb946a8cf82be9c58160,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -52.87352
+      value: -24.090515
       objectReference: {fileID: 0}
     - target: {fileID: 4687933391920879024, guid: 75558ffdf76bfb946a8cf82be9c58160,
         type: 3}
@@ -7507,6 +7517,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: RabbitBaby
+      objectReference: {fileID: 0}
+    - target: {fileID: 4687933391920879036, guid: 75558ffdf76bfb946a8cf82be9c58160,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 7067661553006045528, guid: 75558ffdf76bfb946a8cf82be9c58160,
+        type: 3}
+      propertyPath: speed
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 75558ffdf76bfb946a8cf82be9c58160, type: 3}
@@ -7988,6 +8008,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 800894200}
     m_Modifications:
+    - target: {fileID: 1713364461013772176, guid: 65ce8e35c5de6bf4993327746f0c839b,
+        type: 3}
+      propertyPath: CustomTip
+      value: Peter the Rabbit
+      objectReference: {fileID: 0}
     - target: {fileID: 4687933391920879024, guid: 65ce8e35c5de6bf4993327746f0c839b,
         type: 3}
       propertyPath: m_RootOrder
@@ -7996,17 +8021,17 @@ PrefabInstance:
     - target: {fileID: 4687933391920879024, guid: 65ce8e35c5de6bf4993327746f0c839b,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 60.976425
+      value: 81.85
       objectReference: {fileID: 0}
     - target: {fileID: 4687933391920879024, guid: 65ce8e35c5de6bf4993327746f0c839b,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -7.9797916
+      value: -11.17
       objectReference: {fileID: 0}
     - target: {fileID: 4687933391920879024, guid: 65ce8e35c5de6bf4993327746f0c839b,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -50.89087
+      value: -55.96
       objectReference: {fileID: 0}
     - target: {fileID: 4687933391920879024, guid: 65ce8e35c5de6bf4993327746f0c839b,
         type: 3}
@@ -10574,6 +10599,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 800894200}
     m_Modifications:
+    - target: {fileID: -855836380047377290, guid: 75558ffdf76bfb946a8cf82be9c58160,
+        type: 3}
+      propertyPath: MaxDistance
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1713364461013772176, guid: 75558ffdf76bfb946a8cf82be9c58160,
+        type: 3}
+      propertyPath: CustomTip
+      value: Have you seen my dad?
+      objectReference: {fileID: 0}
     - target: {fileID: 4687933391920879024, guid: 75558ffdf76bfb946a8cf82be9c58160,
         type: 3}
       propertyPath: m_RootOrder
@@ -10582,17 +10617,17 @@ PrefabInstance:
     - target: {fileID: 4687933391920879024, guid: 75558ffdf76bfb946a8cf82be9c58160,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 66.785934
+      value: -12.8
       objectReference: {fileID: 0}
     - target: {fileID: 4687933391920879024, guid: 75558ffdf76bfb946a8cf82be9c58160,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -9.040014
+      value: -1.07
       objectReference: {fileID: 0}
     - target: {fileID: 4687933391920879024, guid: 75558ffdf76bfb946a8cf82be9c58160,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -49.32979
+      value: -27.25
       objectReference: {fileID: 0}
     - target: {fileID: 4687933391920879024, guid: 75558ffdf76bfb946a8cf82be9c58160,
         type: 3}
@@ -10633,6 +10668,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: RabbitBaby (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4687933391920879036, guid: 75558ffdf76bfb946a8cf82be9c58160,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 7067661553006045528, guid: 75558ffdf76bfb946a8cf82be9c58160,
+        type: 3}
+      propertyPath: speed
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 75558ffdf76bfb946a8cf82be9c58160, type: 3}

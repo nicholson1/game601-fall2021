@@ -30,21 +30,35 @@ public class AnimalRandomMovement : MonoBehaviour
     
     private Vector3 StartPosition;
     private Animator _am;
+    private AnimalFollow _AF;
 
     private float TimeToNext;
     private bool Moving;
+    private bool is_following;
+    private Rigidbody _rb;
 
     void Start()
     {
         _am = GetComponentInChildren<Animator>();
+        _AF = GetComponent<AnimalFollow>();
         StartPosition = transform.position;
+        _rb = GetComponent<Rigidbody>();
+
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(!Stop)
+        _am.SetFloat("movement", speed);
+
+        if (is_following != _AF.following)
+        {
+            is_following = _AF.following;
+            StartPosition = transform.position;
+        }
+        
+        if(!Stop && !is_following)
         {
             TimeToNext -= Time.deltaTime;
             if (TimeToNext < 0)
@@ -62,11 +76,15 @@ public class AnimalRandomMovement : MonoBehaviour
 
             }
 
-            if (Vector3.Distance(transform.position, StartPosition) > MaxDistance)
+            if (Vector3.Distance(transform.position, StartPosition) >= MaxDistance)
             {
-                //Debug.LogError("Too Far turn around");
-                MoveDirection = new Vector3(-MoveDirection.x, 0, -MoveDirection.y).normalized;
+               // Debug.LogError("Too Far turn around");
+                
+                MoveDirection = new Vector3(StartPosition.x - transform.position.x, 0, StartPosition.z - StartPosition.z);
+                //MoveDirection = new Vector3(MoveDirection.x *-1, 0, MoveDirection.y * -1).normalized;
                 transform.LookAt(transform.position + MoveDirection);
+
+                //speed = 0;
 
 
             }
@@ -112,7 +130,7 @@ public class AnimalRandomMovement : MonoBehaviour
 
         }
         
-        _am.SetFloat("movement", speed);
+        
         transform.LookAt(transform.position + MoveDirection);
         
 
@@ -134,7 +152,6 @@ public class AnimalRandomMovement : MonoBehaviour
     {
         Stop = false;
         speed = 0;
-        _am.SetFloat("movement", speed);
 
         
     }
