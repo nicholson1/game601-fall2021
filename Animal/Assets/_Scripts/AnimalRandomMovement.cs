@@ -72,9 +72,12 @@ public class AnimalRandomMovement : MonoBehaviour
 
             if (speed > 0)
             {
+                transform.LookAt(new Vector3(MoveDirection.x, transform.position.y, MoveDirection.z));
+
                 transform.position = Vector3.MoveTowards(transform.position, MoveDirection,
                     speed * Time.deltaTime);
-                transform.LookAt(new Vector3(MoveDirection.x, transform.position.y, MoveDirection.z));
+                _am.SetFloat("movement", speed);
+
                 
                 if (new Vector2(transform.position.x - MoveDirection.x, transform.position.z - MoveDirection.z).magnitude <= 1)
 
@@ -108,6 +111,7 @@ public class AnimalRandomMovement : MonoBehaviour
         speed = 0;
         _am.SetTrigger("eat");
         TimeToNext = maxWaitTime;
+        _am.SetFloat("movement", speed);
         
     }
 
@@ -184,5 +188,14 @@ public class AnimalRandomMovement : MonoBehaviour
         MoveDirection = target;
         transform.LookAt(MoveDirection);
         TimeToNext = timeToChill;
+        _am.SetFloat("movement", speed);
+    }
+
+    public void Activate(float timeToChill)
+    {
+        Activated = true;
+        TimeToNext = timeToChill;
+        _am.SetTrigger("eat");
+        StartPosition = transform.position;
     }
 }

@@ -94,7 +94,9 @@ public class AnimalPathedMovement : MonoBehaviour
 
             }
         }
-        _am.SetFloat("movement", speed);
+        if(!is_following && !Stop)
+            _am.SetFloat("movement", speed);
+
 
         
            

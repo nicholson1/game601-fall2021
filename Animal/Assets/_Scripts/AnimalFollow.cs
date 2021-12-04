@@ -57,6 +57,14 @@ public class AnimalFollow : MonoBehaviour
             if (objectToFollow != null)
 
             {
+                // speed = objectToFollow.GetComponentInParent<PlayerMovement1>().moveAmount.z;
+                // if (speed > 1)
+                // {
+                //     speed -= .05f;
+                // }
+                _am.SetFloat("movement", speed);
+
+                
                 targetPos = new Vector3(objectToFollow.transform.position.x, transform.position.y,
                     objectToFollow.transform.position.z);
                 if (Vector3.Distance(targetPos + Vector3.back + offset, transform.position) > 4)
