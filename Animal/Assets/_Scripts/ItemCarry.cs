@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,7 +16,14 @@ public class ItemCarry : MonoBehaviour
     public Transform itemHand1;
 
     private Item interactItem;
-    
+
+    private AnimalCheck _animalCheck;
+
+    private void Start()
+    {
+        _animalCheck = GetComponent<AnimalCheck>();
+    }
+
     private void Update()
     {
         if (interactItem != null)
@@ -92,6 +100,7 @@ public class ItemCarry : MonoBehaviour
         item1.transform.SetParent(transform.parent.parent);
         item1.Drop();
         item1 = null;
+        CheckIfStillFollowing();
     }
     private void DropItem2()
     {        
@@ -101,6 +110,36 @@ public class ItemCarry : MonoBehaviour
         item2.Drop();
 
         item2 = null;
+        CheckIfStillFollowing();
+    }
+    
+    public void CheckIfStillFollowing()
+    {
+        foreach (AnimalFollow animalFollow in _animalCheck.animalsFollowingMe)
+        {
+            bool keepFolowing = false;
+
+            if (item1 != null)
+            {
+                if (animalFollow.CorrectItem(item1.type))
+                {
+                    keepFolowing = true;
+                    break;
+                }
+            }
+            if (item2 != null)
+            {
+                if (animalFollow.CorrectItem(item2.type))
+                {
+                    keepFolowing = true;
+                    break;
+                }
+            }
+            animalFollow.following = false;
+
+
+            
+        }
     }
 
 

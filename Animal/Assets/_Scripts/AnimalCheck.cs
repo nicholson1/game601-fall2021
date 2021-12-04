@@ -9,6 +9,10 @@ public class AnimalCheck : MonoBehaviour
 {
 	public AnimalInteract animalInteract;
 	
+	public List<AnimalFollow> animalsFollowingMe = new List<AnimalFollow>();
+	
+
+	
 
 	private void OnTriggerEnter(Collider other)
 	{
@@ -56,6 +60,8 @@ public class AnimalCheck : MonoBehaviour
 			{
 				animalFollow.objectToFollow = transform;
 				animalFollow.following = true;
+				animalsFollowingMe.Add(animalFollow);
+
 				return;
 			}
 		}
@@ -66,10 +72,18 @@ public class AnimalCheck : MonoBehaviour
 			{
 				animalFollow.objectToFollow = transform;
 				animalFollow.following = true;
+				animalsFollowingMe.Add(animalFollow);
+
 				return;
 			}
 		}
 		
 		//if item or item 2 is in animalInteract.getcomponent
+		
 	}
+
+	
+
+	
+	
 }

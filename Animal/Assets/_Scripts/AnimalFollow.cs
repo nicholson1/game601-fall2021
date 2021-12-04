@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEditor.UIElements;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -25,6 +26,18 @@ public class AnimalFollow : MonoBehaviour
     {
         _rb = GetComponent<Rigidbody>();
         _am = GetComponentInChildren<Animator>();
+    }
+
+    public bool CorrectItem(Item.Itemtype item)
+    {
+        if (itemsToFollow.Contains(item))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 
 

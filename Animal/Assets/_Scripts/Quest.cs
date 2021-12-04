@@ -12,6 +12,7 @@ public class Quest : MonoBehaviour
 
     public bool Completed;
     public GameObject CompleteQuestParticle;
+    public bool AllRequirments = true;
 
     private void Update()
     {
@@ -20,25 +21,45 @@ public class Quest : MonoBehaviour
 
     private void CheckIfComplete()
     {
+        bool OneInRange = false;
         foreach (GameObject req in Requirments)
         {
             
             if (Vector3.Distance(transform.position, req.transform.position) > MaxDistanceForReq)
             {
-                return;
-            }
-
-            //if we are an item, check to see if were on ground
-            Item item = req.GetComponent<Item>();
-            if (item != null)
-            {
-                if (item.pickedUp == true)
-                {
+                if(AllRequirments)
                     return;
+            }
+            else
+            {
+                //if we are in range
+                // are we on ground or in hand?
+                Item item = req.GetComponent<Item>();
+                if (item != null)
+                {
+                    if (item.pickedUp == true)
+                    {
+                        if(AllRequirments)
+                            return;
+                    }
+                    else
+                    {
+                        OneInRange = true;
+
+                    }
                 }
             }
 
             
+            //if we are an item, check to see if were on ground
+            
+
+            
+        }
+
+        if (!AllRequirments && !OneInRange)
+        {
+            return;
         }
         //if we never returned all objects should be close by
         //complete
