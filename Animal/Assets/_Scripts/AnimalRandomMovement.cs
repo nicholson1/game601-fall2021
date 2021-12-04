@@ -197,5 +197,6 @@ public class AnimalRandomMovement : MonoBehaviour
         TimeToNext = timeToChill;
         _am.SetTrigger("eat");
         StartPosition = transform.position;
+        GetRandomPosition();
     }
 }

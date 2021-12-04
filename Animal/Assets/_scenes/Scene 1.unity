@@ -1199,6 +1199,11 @@ PrefabInstance:
       value: Hello Child, my heart aches for my love in another herd, I hope someday
         we can be together again...
       objectReference: {fileID: 0}
+    - target: {fileID: 7763698722249838798, guid: c8e4e38c3a0c0ac4ab19e26ba8b7f59f,
+        type: 3}
+      propertyPath: m_FontData.m_BestFit
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8373652228442156350, guid: c8e4e38c3a0c0ac4ab19e26ba8b7f59f,
         type: 3}
       propertyPath: m_LocalPosition.z
@@ -4474,7 +4479,7 @@ PrefabInstance:
     - target: {fileID: 1349327690108198311, guid: 916335688c4d68b45ab28934b9f8f230,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 1.61
+      value: 1.6779999
       objectReference: {fileID: 0}
     - target: {fileID: 1349327690108198311, guid: 916335688c4d68b45ab28934b9f8f230,
         type: 3}
@@ -4878,7 +4883,7 @@ PrefabInstance:
     - target: {fileID: 1377404151979473427, guid: 9894ed1a842395641b09776edfd8a488,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 206.96
+      value: 192.7
       objectReference: {fileID: 0}
     - target: {fileID: 1377404151979473427, guid: 9894ed1a842395641b09776edfd8a488,
         type: 3}
@@ -4888,7 +4893,7 @@ PrefabInstance:
     - target: {fileID: 1377404151979473427, guid: 9894ed1a842395641b09776edfd8a488,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 121.45
+      value: 177.6
       objectReference: {fileID: 0}
     - target: {fileID: 1377404151979473427, guid: 9894ed1a842395641b09776edfd8a488,
         type: 3}
@@ -7018,6 +7023,11 @@ PrefabInstance:
       value: "O sweet Julianna\nThy beauty hath made me effeminate\r\nAnd in my temper
         softened valor\u2019s steel!"
       objectReference: {fileID: 0}
+    - target: {fileID: 1349327689890988681, guid: 916335688c4d68b45ab28934b9f8f230,
+        type: 3}
+      propertyPath: m_FontData.m_BestFit
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1349327690108198308, guid: 916335688c4d68b45ab28934b9f8f230,
         type: 3}
       propertyPath: m_Name
@@ -7641,6 +7651,11 @@ PrefabInstance:
       propertyPath: m_Text
       value: "With love\u2019s light wings did I o\u2019erperch these walls,\r\nFor
         stony limits cannot hold love out."
+      objectReference: {fileID: 0}
+    - target: {fileID: 1349327689890988681, guid: 916335688c4d68b45ab28934b9f8f230,
+        type: 3}
+      propertyPath: m_FontData.m_BestFit
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1349327690108198308, guid: 916335688c4d68b45ab28934b9f8f230,
         type: 3}
@@ -9649,6 +9664,11 @@ PrefabInstance:
       propertyPath: m_Text
       value: Thank you dear, I wont forget what you have done for us.
       objectReference: {fileID: 0}
+    - target: {fileID: 1349327689890988681, guid: 916335688c4d68b45ab28934b9f8f230,
+        type: 3}
+      propertyPath: m_FontData.m_BestFit
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1349327690108198308, guid: 916335688c4d68b45ab28934b9f8f230,
         type: 3}
       propertyPath: m_Name
@@ -9747,7 +9767,7 @@ PrefabInstance:
     - target: {fileID: 1349327690108198311, guid: 916335688c4d68b45ab28934b9f8f230,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 1.61
+      value: 1.678
       objectReference: {fileID: 0}
     - target: {fileID: 1349327690108198311, guid: 916335688c4d68b45ab28934b9f8f230,
         type: 3}
@@ -11930,6 +11950,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Text
       value: ' Oh Romulus, oh Romulus! Wherefore art thou my Romulus?'
+      objectReference: {fileID: 0}
+    - target: {fileID: 7763698722249838798, guid: 68d8466a92a395a4897f9b645a3a90a1,
+        type: 3}
+      propertyPath: m_FontData.m_BestFit
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7763698722691174371, guid: 68d8466a92a395a4897f9b645a3a90a1,
         type: 3}
