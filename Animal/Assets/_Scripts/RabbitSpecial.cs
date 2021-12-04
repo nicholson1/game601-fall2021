@@ -34,6 +34,9 @@ public class RabbitSpecial : AnimalQuestSpecial
         QuestText.SetActive(true);
         req[0].GetComponent<AnimalInteract>().textBox.GetComponentInChildren<Text>().text = "I like Carrots";
         req[1].GetComponent<AnimalInteract>().textBox.GetComponentInChildren<Text>().text = "I like Turnips";
+        req[0].GetComponent<AnimalRandomMovement>().Activate(5);
+        req[1].GetComponent<AnimalRandomMovement>().Activate(5);
+
         _ARM.SpecificMovment(req[0].transform.position, 3);
         StartCoroutine(WaitThenRemoveText());
 
