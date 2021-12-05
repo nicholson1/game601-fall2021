@@ -1,7 +1,7 @@
 fileFormatVersion: 2
 guid: d71cb4621fa147e4fb934193de277505
 ModelImporter:
-  serializedVersion: 19301
+  serializedVersion: 20200
   internalIDToNameTable:
   - first:
       1: 100000
@@ -423,9 +423,9 @@ ModelImporter:
       curves: []
       events:
       - time: 0.36708862
-        functionName: JumpRB
+        functionName: Jump
         data: 
-        objectReferenceParameter: {fileID: 11500000, guid: 88123552f11994d4e835611cddef751a,
+        objectReferenceParameter: {fileID: 11500000, guid: e5a0d3d14084bee41b07b18dc157cf19,
           type: 3}
         floatParameter: 0
         intParameter: 0
@@ -452,6 +452,7 @@ ModelImporter:
     useFileUnits: 1
     keepQuads: 0
     weldVertices: 1
+    bakeAxisConversion: 0
     preserveHierarchy: 0
     skinWeightsMode: 0
     maxBonesPerVertex: 4
@@ -461,6 +462,9 @@ ModelImporter:
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
     secondaryUVPackMargin: 4
     useFileScale: 1
   tangentSpace:
@@ -1211,6 +1215,7 @@ ModelImporter:
   animationType: 3
   humanoidOversampling: 1
   avatarSetup: 2
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 0
   additionalBone: 0
   userData: 
   assetBundleName: 

@@ -19,6 +19,8 @@ public class ItemCarry : MonoBehaviour
 
     private AnimalCheck _animalCheck;
 
+    public Transform dropPoint;
+
     private void Start()
     {
         _animalCheck = GetComponent<AnimalCheck>();
@@ -95,19 +97,21 @@ public class ItemCarry : MonoBehaviour
     private void DropItem1()
 
     {
-        item1.transform.position = transform.parent.position + Vector3.forward + Vector3.up;
+        item1.transform.position = dropPoint.position;
 
-        item1.transform.SetParent(transform.parent.parent);
-        item1.Drop();
+        //item1.transform.position = transform.parent.position + Vector3.forward + Vector3.up;
+
+        item1.Drop(transform.parent);
         item1 = null;
         CheckIfStillFollowing();
     }
     private void DropItem2()
     {        
-        item2.transform.position = transform.parent.position + Vector3.forward + Vector3.up;
+        item2.transform.position = dropPoint.position;
 
-        item2.transform.SetParent(transform.parent.parent);
-        item2.Drop();
+        //item2.transform.position = transform.parent.position + transform.parent.rotation.eulerAngles.normalized + Vector3.up;
+
+        item2.Drop(transform.parent);
 
         item2 = null;
         CheckIfStillFollowing();
@@ -117,13 +121,13 @@ public class ItemCarry : MonoBehaviour
     {
         foreach (AnimalFollow animalFollow in _animalCheck.animalsFollowingMe)
         {
-            bool keepFolowing = false;
+            //bool keepFolowing = false;
 
             if (item1 != null)
             {
                 if (animalFollow.CorrectItem(item1.type))
                 {
-                    keepFolowing = true;
+                    //keepFolowing = true;
                     break;
                 }
             }
@@ -131,7 +135,7 @@ public class ItemCarry : MonoBehaviour
             {
                 if (animalFollow.CorrectItem(item2.type))
                 {
-                    keepFolowing = true;
+                    //keepFolowing = true;
                     break;
                 }
             }

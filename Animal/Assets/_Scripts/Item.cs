@@ -22,6 +22,23 @@ public class Item : MonoBehaviour
         // model.name = "ItemModel";
         // model.transform.rotation = transform.rotation;
     }
+    private Vector3 lastPosition;
+    void FixedUpdate()
+    {
+
+        bool hit = Physics.Raycast(transform.position + new Vector3(0,.1f,0), Vector3.down, 10);
+
+        if (hit)
+        {
+            this.lastPosition = transform.position;
+        }
+        else
+        {
+            //Debug.Log("we fell through" + gameObject.name);
+            transform.position = new Vector3(transform.position.x, lastPosition.y +.05f , transform.position.z);
+        }
+
+    }
 
     public void Update()
     {
@@ -54,7 +71,7 @@ public class Item : MonoBehaviour
 
     }
 
-    public void Drop()
+    public void Drop(Transform player)
     {
         GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
         GetComponent<Rigidbody>().detectCollisions = true;
@@ -63,7 +80,9 @@ public class Item : MonoBehaviour
 
         pickedUp = false;
         transform.eulerAngles = Vector3.zero;
-        transform.localScale -= offsetScale;
+        transform.SetParent(player.parent);
+
+        //transform.localScale = transform.localScale - offsetScale;
     }
 
     public void ShowToolTip(Transform playerPosition)

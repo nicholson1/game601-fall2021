@@ -29,7 +29,7 @@ public class ButterflySpawner : MonoBehaviour
         {
             Butterfly fly = Instantiate(butterfly, transform.position, transform.rotation);
             fly.speed = Random.Range(.5f, 3);
-            fly.end = transform.position + new Vector3(Random.Range(-1, 1), 10, Random.Range(-1, 1));
+            fly.end = transform.position + new Vector3(Random.Range(-1, 1), 100, Random.Range(-1, 1));
             timeToSpawn = 1 / particlePerSecond;
 
         }

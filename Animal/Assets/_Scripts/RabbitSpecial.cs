@@ -8,12 +8,14 @@ public class RabbitSpecial : AnimalQuestSpecial
     public GameObject QuestText;
     public GameObject PostQuestText;
     private AnimalRandomMovement _ARM;
+    public GameObject butterflyies;
     private void Start()
     {
         QuestText.SetActive(false);
         _ARM = GetComponent<AnimalRandomMovement>();
 
         PostQuestText.SetActive(false);
+        
     }
     
     public IEnumerator WaitThenRemoveText()
@@ -32,6 +34,9 @@ public class RabbitSpecial : AnimalQuestSpecial
     {
 
         QuestText.SetActive(true);
+        Instantiate(butterflyies, req[0].transform);
+        Instantiate(butterflyies, req[1].transform);
+
         req[0].GetComponent<AnimalInteract>().textBox.GetComponentInChildren<Text>().text = "I like Carrots";
         req[1].GetComponent<AnimalInteract>().textBox.GetComponentInChildren<Text>().text = "I like Turnips";
         req[0].GetComponent<AnimalRandomMovement>().Activate(5);

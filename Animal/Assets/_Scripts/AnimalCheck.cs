@@ -20,8 +20,14 @@ public class AnimalCheck : MonoBehaviour
 		{
 			if (animalInteract == null)
 			{
-				animalInteract = other.GetComponent<AnimalInteract>();
-				animalInteract.ShowToolTip(transform.parent);
+				
+				if(other.GetComponent<AnimalInteract>().canInteract)
+				{
+					animalInteract = other.GetComponent<AnimalInteract>();
+					animalInteract.ShowToolTip(transform.parent);
+				}
+				
+				
 			}
 		}
 	}
@@ -47,6 +53,29 @@ public class AnimalCheck : MonoBehaviour
 				animalInteract.Interact(transform.parent.transform);
 				FollowMe();
 			}
+
+			if (Input.GetButtonUp("Mount"))
+			{
+				//mount
+				TryMount();
+			}
+		}
+	}
+
+	public void TryMount()
+	{
+		Mount mount = animalInteract.GetComponent<Mount>();
+		if (mount == null || mount.CanMount == false)
+		{
+			return;
+		}
+		else
+		{
+			mount.DoTheMount(gameObject.transform.parent.gameObject);
+			GetComponentInParent<PlayerMovement1>().MountToggle();
+			animalInteract.Disengage();
+
+			animalInteract = null;
 		}
 	}
 	
@@ -76,6 +105,24 @@ public class AnimalCheck : MonoBehaviour
 
 				return;
 			}
+		}
+
+		if (animalFollow.DontNeedItem)
+		{
+			//if already following cancel
+			if (animalFollow.following == false)
+			{
+				animalFollow.objectToFollow = transform;
+				animalFollow.following = true;
+				animalsFollowingMe.Add(animalFollow);
+			}
+			else
+			{
+				animalFollow.objectToFollow = null;
+				animalFollow.following = false;
+				animalsFollowingMe.Remove(animalFollow);
+			}
+			
 		}
 		
 		//if item or item 2 is in animalInteract.getcomponent

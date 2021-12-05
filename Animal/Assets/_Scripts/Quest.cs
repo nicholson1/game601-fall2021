@@ -14,9 +14,19 @@ public class Quest : MonoBehaviour
     public GameObject CompleteQuestParticle;
     public bool AllRequirments = true;
 
+    public Transform CheckLocation;
+
     private void Update()
     {
         CheckIfComplete();
+    }
+
+    private void Start()
+    {
+        if (CheckLocation == null)
+        {
+            CheckLocation = transform;
+        }
     }
 
     private void CheckIfComplete()
@@ -25,7 +35,7 @@ public class Quest : MonoBehaviour
         foreach (GameObject req in Requirments)
         {
             
-            if (Vector3.Distance(transform.position, req.transform.position) > MaxDistanceForReq)
+            if (Vector3.Distance(CheckLocation.position, req.transform.position) > MaxDistanceForReq)
             {
                 if(AllRequirments)
                     return;

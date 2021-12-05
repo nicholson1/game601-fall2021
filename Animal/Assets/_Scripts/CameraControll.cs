@@ -10,12 +10,28 @@ public class CameraControll : MonoBehaviour
     {
         //camera zoom
         float zoom = (Input.GetAxis("Mouse ScrollWheel"));
-        if (zoom != 0)
-        {
-            transform.position = Vector3.MoveTowards(transform.position,
-                transform.parent.position + new Vector3(0, 1, 0), zoom * 5 );
-            
-        }
+        
+            if (zoom < 0)
+            {
+                if (Vector3.Distance(transform.position, transform.parent.position) < 200)
+                {
+                    transform.position = Vector3.MoveTowards(transform.position,
+                        transform.parent.position + new Vector3(0, 1, 0), zoom * 5);
+                }
+
+            }
+
+            if (zoom > 0)
+            {
+                if (Vector3.Distance(transform.position, transform.parent.position) > 2)
+                {
+                    transform.position = Vector3.MoveTowards(transform.position,
+                        transform.parent.position + new Vector3(0, 1, 0), zoom * 5 );
+
+                }
+            }
+        
+        
         //camera roatate;
         if(Input.GetMouseButton(0))
         {
@@ -27,6 +43,7 @@ public class CameraControll : MonoBehaviour
 
             if (Input.GetMouseButton(1))
             {
+                //transform.parent.rotation = transform.rotation;
                 //transform.parent.LookAt(new Vector3(transform.position.x, transform.parent.position.y, -transform.position.z));
                 transform.parent.GetComponent<PlayerMovement1>().moveAmount = Vector3.forward;
                 
@@ -46,4 +63,8 @@ public class CameraControll : MonoBehaviour
 
     }
 
+    private void LateUpdate()
+    {
+        transform.LookAt(transform.parent.position + new Vector3(0, 2, 0));
+    }
 }

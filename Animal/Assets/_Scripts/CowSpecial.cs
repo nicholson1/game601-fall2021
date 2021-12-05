@@ -24,6 +24,7 @@ public class CowSpecial : AnimalQuestSpecial
     public override void QuestSpecialAction(GameObject[] req)
     {
         bucket = req[0];
+        bucket.GetComponent<Item>().enabled = false;
         _ARM.SpecificMovment(bucket.transform.position, 10);
         Buckettext.SetActive(true);
 
@@ -34,11 +35,13 @@ public class CowSpecial : AnimalQuestSpecial
     public IEnumerator WaitThenBucket()
     {
         transform.LookAt(bucket.transform);
-        yield return new WaitForSeconds(3f);
+        _ARM.Pause();
+        yield return new WaitForSeconds(1.5f);
         MoveBucket();
-        _ARM.Stop = false;
         Buckettext.SetActive(false);
         GetComponent<AnimalInteract>().textBox = PostQuestText;
+        _ARM.GetRandomPosition();
+        _ARM.Stop = false;
 
 
     }
@@ -51,6 +54,7 @@ public class CowSpecial : AnimalQuestSpecial
         bucket.transform.SetParent(head);
         bucket.transform.localPosition = posOffset;
         bucket.transform.localEulerAngles = rotationOffset;
+        bucket.transform.localScale = new Vector3(.75f, .75f, .75f);
     }
 
 
@@ -65,6 +69,7 @@ public class CowSpecial : AnimalQuestSpecial
                 GetComponentInChildren<Animator>().SetTrigger("eat");
 
                 StartCoroutine(WaitThenBucket());
+                
 
 
 

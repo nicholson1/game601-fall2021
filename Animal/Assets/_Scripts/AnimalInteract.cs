@@ -17,6 +17,7 @@ public class AnimalInteract : MonoBehaviour
 
     private AnimalRandomMovement _ARM;
     private AnimalPathedMovement _APM;
+    public bool canInteract = true;
 
     private void Start()
     {

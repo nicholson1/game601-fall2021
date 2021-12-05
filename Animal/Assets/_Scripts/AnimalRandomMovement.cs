@@ -37,6 +37,10 @@ public class AnimalRandomMovement : MonoBehaviour
     private bool is_following;
     private Rigidbody _rb;
     public bool Activated = true;
+    private bool SpecificMove = false;
+
+    public Transform ThingToFollow;
+    public bool FollowThing = false;
 
     void Start()
     {
@@ -45,6 +49,8 @@ public class AnimalRandomMovement : MonoBehaviour
         StartPosition = transform.position;
         _rb = GetComponent<Rigidbody>();
         GetRandomPosition();
+        
+        
 
 
     }
@@ -52,7 +58,6 @@ public class AnimalRandomMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        _am.SetFloat("movement", speed);
 
         if (is_following != _AF.following)
         {
@@ -60,10 +65,15 @@ public class AnimalRandomMovement : MonoBehaviour
             StartPosition = transform.position;
             GetRandomPosition();
         }
+
+        
+        
         
         
         if(!Stop && !is_following && Activated)
         {
+            _am.SetFloat("movement", speed);
+
             TimeToNext -= Time.deltaTime;
             if (TimeToNext < 0)
             {
@@ -76,16 +86,23 @@ public class AnimalRandomMovement : MonoBehaviour
 
                 transform.position = Vector3.MoveTowards(transform.position, MoveDirection,
                     speed * Time.deltaTime);
-                _am.SetFloat("movement", speed);
+                //_am.SetFloat("movement", speed);
 
+                //Debug.Log(new Vector2(transform.position.x - MoveDirection.x, transform.position.z - MoveDirection.z).magnitude);
                 
-                if (new Vector2(transform.position.x - MoveDirection.x, transform.position.z - MoveDirection.z).magnitude <= 1)
+                if (new Vector2(transform.position.x - MoveDirection.x, transform.position.z - MoveDirection.z).magnitude <= 1.5f)
 
                 {
+                    //Debug.Log("We at the target location");
                     //pause
                     Pause();
                     //new random direction;
                     GetRandomPosition();
+                    if (SpecificMove)
+                    {
+                        SpecificMove = false;
+                        //Debug.Log("specific move no more");
+                    }
                 
                     //MoveDirection = new Vector3(StartPosition.x - transform.position.x, 0, StartPosition.z - StartPosition.z);
                     //MoveDirection = new Vector3(MoveDirection.x *-1, 0, MoveDirection.y * -1).normalized;
@@ -106,16 +123,24 @@ public class AnimalRandomMovement : MonoBehaviour
            
         
     }
-    void Pause()
+    public void Pause(float SetTime = 0)
     {
         speed = 0;
         _am.SetTrigger("eat");
-        TimeToNext = maxWaitTime;
+        if (SetTime == 0)
+        {
+            TimeToNext = maxWaitTime;
+        }
+        else
+        {
+            TimeToNext = SetTime;
+
+        }
         _am.SetFloat("movement", speed);
         
     }
 
-    void GetRandomPosition()
+    public void GetRandomPosition()
     {
         MoveDirection = new Vector3(Random.Range(StartPosition.x - MaxDistance, StartPosition.x + MaxDistance), 0, Random.Range(StartPosition.z - MaxDistance, StartPosition.z + MaxDistance  ));
     }
@@ -155,6 +180,13 @@ public class AnimalRandomMovement : MonoBehaviour
             }
 
         }
+        if (FollowThing)
+        {
+
+            StartPosition = ThingToFollow.position;
+            GetRandomPosition();
+            
+        }
         
         
         //transform.LookAt(transform.position + MoveDirection);
@@ -164,13 +196,23 @@ public class AnimalRandomMovement : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-        if (!other.collider.CompareTag("Ground") && !other.collider.CompareTag("Item"))
+        if (!other.collider.CompareTag("Ground") && !other.collider.CompareTag("Item") && Activated && !Stop)
         {
             //Debug.LogWarning("Hit Object");
-            MoveDirection = new Vector3(-MoveDirection.x, 0, -MoveDirection.y);
+            if (!SpecificMove)
+            {
+                Pause();
+                GetRandomPosition();
+                //MoveDirection = StartPosition + new Vector3(-MoveDirection.x, 0, -MoveDirection.y);
+
+            }
+            else
+            {
+                Pause(.2f);
+            }
 
 
-            transform.LookAt(MoveDirection);
+            //transform.LookAt(MoveDirection);
         }
     }
 
@@ -189,6 +231,7 @@ public class AnimalRandomMovement : MonoBehaviour
         transform.LookAt(MoveDirection);
         TimeToNext = timeToChill;
         _am.SetFloat("movement", speed);
+        SpecificMove = true;
     }
 
     public void Activate(float timeToChill)

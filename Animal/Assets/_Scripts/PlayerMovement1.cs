@@ -21,6 +21,10 @@ public class PlayerMovement1 : MonoBehaviour
 	public bool grounded;
 	public float smoothTime = 0.15f;
 
+	public float MountedRunSpeed;
+	public float MountedWalkSpeed;
+
+
 	public GameObject groundCheckHitSphere;
 	public GameObject groundCheckNoHitSphere;
 
@@ -31,10 +35,13 @@ public class PlayerMovement1 : MonoBehaviour
 	Vector3 smoothMoveVelocity;
 	public Vector3 moveAmount;
 	private Vector3 rotateAmount;
+	
+	private bool Mounted;
+	private Vector3 lastPosition;
 
     void Start()
     {
-        am = GetComponent<Animator>();
+        am = GetComponentInChildren<Animator>();
         rb = GetComponent<Rigidbody>();
     }
 
@@ -135,6 +142,17 @@ public class PlayerMovement1 : MonoBehaviour
 		    am.SetFloat("turn", 0);
 
 	    }
+	    bool hit = Physics.Raycast(transform.position + new Vector3(0,.1f,0), Vector3.down, 10);
+
+	    if (hit)
+	    {
+		    this.lastPosition = transform.position;
+	    }
+	    else
+	    {
+		    //Debug.Log("we fell through" + gameObject.name);
+		    transform.position = new Vector3(transform.position.x, lastPosition.y +.05f , transform.position.z);
+	    }
 	    
 	    
     }
@@ -162,7 +180,27 @@ public class PlayerMovement1 : MonoBehaviour
 		    
 	    }
 
-	    am.SetFloat("movement", moveAmount.z);
+	    if (!Mounted)
+	    {
+		    am.SetFloat("movement", moveAmount.z);
+
+	    }
+	    else
+	    {
+		    
+		    //if moving is non zero
+		    // just walk
+		    if (moveAmount.z > 1)
+		    {
+			    am.SetFloat("movement", 1);
+		    }
+		    else
+		    {
+			    am.SetFloat("movement", 0);
+
+		    }
+
+	    }
 	    //Debug.Log(moveAmount.z);
 	    /*if (moveAmount.z > walkSpeed + 1)
 	    {
@@ -202,12 +240,14 @@ public class PlayerMovement1 : MonoBehaviour
 
     void Jump()
     {
-	    if(Input.GetKeyDown(KeyCode.Space) && grounded)
+	    if(Input.GetKeyDown(KeyCode.Space) && grounded )
 	    {
 		    am.SetBool("jumping", true);
 		    
+			    //mount
+			    if(Mounted)
+					MountToggle();
 		    
-
 	    }
     }
 
@@ -221,6 +261,37 @@ public class PlayerMovement1 : MonoBehaviour
 
 
 	    }
+    }
+
+    public void Test()
+    {
+	    Debug.Log("TestWworking");
+    }
+
+    public void MountToggle()
+    {
+	    
+	    if (!Mounted)
+	    {
+		    walkSpeed += MountedWalkSpeed;
+		    sprintSpeed += MountedRunSpeed;
+		    //GetComponent<CapsuleCollider>().
+		    //rb.constraints = RigidbodyConstraints.FreezeAll;
+
+	    }
+	    else
+	    {
+		    walkSpeed -= MountedWalkSpeed;
+		    sprintSpeed -= MountedRunSpeed;
+		    GetComponentInChildren<Mount>().DisMount();
+		    //GetComponent<CapsuleCollider>().enabled = true;
+
+		    
+
+	    }
+
+	    Mounted = !Mounted;
+
     }
 
     /*public void OnControllerColliderHit(ControllerColliderHit hit)

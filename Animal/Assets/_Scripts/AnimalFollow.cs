@@ -21,6 +21,7 @@ public class AnimalFollow : MonoBehaviour
 
     private Rigidbody _rb;
     private bool is_following;
+    public bool DontNeedItem = false;
 
     private void Start()
     {

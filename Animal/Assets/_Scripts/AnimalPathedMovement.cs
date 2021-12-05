@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
 using UnityEditor;
 using UnityEngine;
 using Debug = UnityEngine.Debug;
@@ -45,7 +46,9 @@ public class AnimalPathedMovement : MonoBehaviour
         _AF = GetComponent<AnimalFollow>();
         _rb = GetComponent<Rigidbody>();
 
+        
         myPoints = myPath.GetComponentsInChildren<Transform>();
+        
         
 
 
@@ -70,10 +73,11 @@ public class AnimalPathedMovement : MonoBehaviour
 
             if (speed > 0)
             {
-                transform.position = Vector3.MoveTowards(transform.position, myPoints[currentIndex].position,
+                Vector3 target = new Vector3(myPoints[currentIndex].position.x, transform.position.y,
+                    myPoints[currentIndex].position.z);
+                transform.position = Vector3.MoveTowards(transform.position, target,
                     speed * Time.deltaTime);
-                transform.LookAt(new Vector3(myPoints[currentIndex].position.x, transform.position.y,
-                    myPoints[currentIndex].position.z));
+                transform.LookAt(target);
 
 
 
@@ -94,8 +98,13 @@ public class AnimalPathedMovement : MonoBehaviour
 
             }
         }
-        if(!is_following && !Stop)
+
+        if (!is_following && !Stop)
+        {
             _am.SetFloat("movement", speed);
+            //Debug.Log("this is the line");
+            //Debug.Log(speed);
+        }
 
 
         
@@ -155,6 +164,7 @@ public class AnimalPathedMovement : MonoBehaviour
 
     public void StopPathedMovement()
     {
+        Debug.Log("stop pathhed movemebt");
         Stop = true;
         speed = 0;
 
