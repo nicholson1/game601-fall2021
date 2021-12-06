@@ -24,7 +24,7 @@ public class AnimalFollow : MonoBehaviour
     public bool DontNeedItem = false;
     public bool special = false;
 
-    private bool SpecialTriggered;
+    public bool SpecialTriggered;
     private void Start()
     {
         _rb = GetComponent<Rigidbody>();

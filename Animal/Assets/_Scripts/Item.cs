@@ -113,6 +113,7 @@ public class Item : MonoBehaviour
         Pumpkin, 
         Bucket,
         Pear,
+        Mushroom,
 
     }
 }

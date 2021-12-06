@@ -159,8 +159,15 @@ public class SpecialPathedMovement : MonoBehaviour
         speed = 0;
         paused = true;
         _am.SetFloat("movement", 0);
+        //ActivateNextText();
+        //activate follow script agina?
+        AnimalFollow _af = GetComponent<AnimalFollow>();
+        _af.special = true;
+        _af.objectToFollow = Player.transform;
+        _af.following = true;
+        _af.SpecialTriggered = false;
+        Activated = false;
 
-        ActivateNextText();
 
     }
 
