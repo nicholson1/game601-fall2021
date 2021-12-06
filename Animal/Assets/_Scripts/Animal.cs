@@ -8,6 +8,7 @@ public class Animal : MonoBehaviour
     public Animaltype type;
 
     private Vector3 lastPosition;
+    public bool important;
     void FixedUpdate()
     {
 
@@ -20,7 +21,16 @@ public class Animal : MonoBehaviour
         else
         {
             //Debug.Log("we fell through" + gameObject.name);
-            transform.position = new Vector3(transform.position.x, lastPosition.y +.05f , transform.position.z);
+            if (important)
+            {
+                transform.position = new Vector3(transform.position.x, lastPosition.y +.1f , transform.position.z);
+
+            }
+            else
+            {
+                transform.position = new Vector3(transform.position.x, lastPosition.y +.05f , transform.position.z);
+  
+            }
         }
 
     }

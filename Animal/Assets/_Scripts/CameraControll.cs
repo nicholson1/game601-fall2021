@@ -8,6 +8,8 @@ public class CameraControll : MonoBehaviour
     // Start is called before the first frame update
     private Vector3 initialPos;
     private Vector3 initialAngles;
+
+    public GameObject Menu;
     private void Start()
     {
         transform.LookAt(transform.parent.position + new Vector3(0, 2, 0));
@@ -40,10 +42,10 @@ public class CameraControll : MonoBehaviour
 
                 }
             }
-        
-        
-        
-        
+
+
+
+            
         if(Input.GetMouseButton(0))
         {
             
@@ -76,7 +78,7 @@ public class CameraControll : MonoBehaviour
 
         if (rotateX != 0 || rotateY != 0)
         {
-            transform.RotateAround(transform.parent.position + new Vector3(0, 1, 0), transform.up, rotateX *2f);
+            //transform.RotateAround(transform.parent.position + new Vector3(0, 1, 0), transform.up, rotateX *2f);
             transform.RotateAround(transform.parent.position + new Vector3(0, 1, 0), transform.right,-rotateY * 2f);
 
             transform.eulerAngles =  new Vector3(transform.eulerAngles.x, transform.eulerAngles.y ,0);
@@ -99,5 +101,10 @@ public class CameraControll : MonoBehaviour
     private void LateUpdate()
     {
         transform.LookAt(transform.parent.position + new Vector3(0, 2, 0));
+        if (Input.GetButtonUp("menu"))
+        {
+                
+            Menu.SetActive(!Menu.activeSelf);
+        }
     }
 }

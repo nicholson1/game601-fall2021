@@ -7,6 +7,8 @@ public class AverySpecial : AnimalQuestSpecial
 {
     public GameObject QuestText;
     public GameObject PostQuestText;
+    public GameObject endMenu;
+    
     private void Start()
     {
         QuestText.SetActive(false);
@@ -20,11 +22,15 @@ public class AverySpecial : AnimalQuestSpecial
         
         QuestText.SetActive(false);
         GetComponent<AnimalInteract>().textBox = PostQuestText;
+        GetComponent<Animator>().SetFloat("movement", 0);
+        
+        endMenu.transform.parent.gameObject.SetActive(true);
+        endMenu.SetActive(true);
         
         //END GAME
         //FadeToBlack
         // thank you screen
-        Debug.Log("end");
+        //Debug.Log("end");
 
 
     }
