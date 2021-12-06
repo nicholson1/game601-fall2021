@@ -27,6 +27,8 @@ public class CowSpecial : AnimalQuestSpecial
         bucket.GetComponent<Item>().enabled = false;
         _ARM.SpecificMovment(bucket.transform.position, 10);
         Buckettext.SetActive(true);
+        StartCoroutine(WaitThenBucket());
+
 
         //Debug.Log("cow special");
         
@@ -36,7 +38,7 @@ public class CowSpecial : AnimalQuestSpecial
     {
         transform.LookAt(bucket.transform);
         _ARM.Pause();
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(3f);
         MoveBucket();
         Buckettext.SetActive(false);
         GetComponent<AnimalInteract>().textBox = PostQuestText;

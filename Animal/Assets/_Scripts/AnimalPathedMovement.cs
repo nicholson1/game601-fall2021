@@ -18,7 +18,8 @@ public class AnimalPathedMovement : MonoBehaviour
     public bool CanRun;
 
     public bool Stop = false;
-    
+    public bool Activated = true;
+
     public float minWaitTime;
     public float maxWaitTime;
     
@@ -39,6 +40,8 @@ public class AnimalPathedMovement : MonoBehaviour
     public GameObject myPath;
     private Transform[] myPoints;
     private int currentIndex = 0;
+
+    public bool DontStopAtPoints = false;
 
     void Start()
     {
@@ -63,7 +66,7 @@ public class AnimalPathedMovement : MonoBehaviour
             is_following = _AF.following;
         }
         
-        if(!Stop && !is_following)
+        if(!Stop && !is_following && Activated)
         {
             TimeToNext -= Time.deltaTime;
             if (TimeToNext < 0)
@@ -86,7 +89,10 @@ public class AnimalPathedMovement : MonoBehaviour
             if (new Vector2(transform.position.x - myPoints[currentIndex].position.x, transform.position.z - myPoints[currentIndex].position.z).magnitude <= 2)
             {
                //pause
-               Pause();
+               if (!DontStopAtPoints)
+               {
+                   Pause();
+               }
                
                currentIndex += 1;
                if (currentIndex > myPoints.Length - 1)
@@ -99,7 +105,7 @@ public class AnimalPathedMovement : MonoBehaviour
             }
         }
 
-        if (!is_following && !Stop)
+        if (!is_following && !Stop && Activated)
         {
             _am.SetFloat("movement", speed);
             //Debug.Log("this is the line");
@@ -164,10 +170,8 @@ public class AnimalPathedMovement : MonoBehaviour
 
     public void StopPathedMovement()
     {
-        Debug.Log("stop pathhed movemebt");
         Stop = true;
         speed = 0;
-
-        
     }
+    
 }

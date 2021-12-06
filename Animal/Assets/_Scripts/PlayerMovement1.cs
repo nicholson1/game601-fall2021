@@ -162,18 +162,27 @@ public class PlayerMovement1 : MonoBehaviour
     {
 	    if (grounded)
 	    {
-		    Vector3 moveDir = new Vector3(0, 0, Input.GetAxisRaw("Vertical")).normalized;
+		    Vector3 moveDir = new Vector3(0, 0, Input.GetAxisRaw("Vertical"));
 
 		    if (moveDir.z > 0)
 		    {
-			    moveAmount = Vector3.SmoothDamp(moveAmount,
-				    moveDir * (Input.GetKey(KeyCode.LeftShift) ? sprintSpeed : walkSpeed), ref smoothMoveVelocity,
-				    smoothTime);
+			    if (moveDir.z > .5f)
+			    {
+				    moveAmount = Vector3.SmoothDamp(moveAmount,
+					    moveDir * (Input.GetButton("Sprint") ? sprintSpeed : sprintSpeed), ref smoothMoveVelocity,
+					    smoothTime);
+			    }else
+			    {
+				    moveAmount = Vector3.SmoothDamp(moveAmount,
+					    moveDir * (Input.GetButton("Sprint") ? sprintSpeed : walkSpeed), ref smoothMoveVelocity,
+					    smoothTime);
+			    }
+			    
 		    }
 		    else
 		    {
 			    moveAmount = Vector3.SmoothDamp(moveAmount,
-				    moveDir * (Input.GetKey(KeyCode.LeftShift) ? walkSpeed : walkSpeed), ref smoothMoveVelocity,
+				    moveDir * (Input.GetButton("Sprint") ? walkSpeed : walkSpeed), ref smoothMoveVelocity,
 				    smoothTime);
 		    }
 
@@ -240,7 +249,7 @@ public class PlayerMovement1 : MonoBehaviour
 
     void Jump()
     {
-	    if(Input.GetKeyDown(KeyCode.Space) && grounded )
+	    if(Input.GetButtonDown("Jump") && grounded )
 	    {
 		    am.SetBool("jumping", true);
 		    

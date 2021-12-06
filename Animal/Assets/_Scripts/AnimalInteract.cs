@@ -72,7 +72,6 @@ public class AnimalInteract : MonoBehaviour
         CloseToolTip();
 
         textBox.SetActive(false);
-        _am.SetTrigger("eat");
         if (_ARM != null)
         {
             _ARM.Stop = false;

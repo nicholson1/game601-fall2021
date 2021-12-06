@@ -22,7 +22,9 @@ public class AnimalFollow : MonoBehaviour
     private Rigidbody _rb;
     private bool is_following;
     public bool DontNeedItem = false;
+    public bool special = false;
 
+    private bool SpecialTriggered;
     private void Start()
     {
         _rb = GetComponent<Rigidbody>();
@@ -58,19 +60,25 @@ public class AnimalFollow : MonoBehaviour
             if (objectToFollow != null)
 
             {
-                // speed = objectToFollow.GetComponentInParent<PlayerMovement1>().moveAmount.z;
-                // if (speed > 1)
-                // {
-                //     speed -= .05f;
-                // }
-                _am.SetFloat("movement", speed);
+                if (special)
+                {
+                    speed = Vector3.Distance(transform.position, objectToFollow.position)/3 + 1;
+                }
 
                 
                 targetPos = new Vector3(objectToFollow.transform.position.x, transform.position.y,
                     objectToFollow.transform.position.z);
                 if (Vector3.Distance(targetPos + Vector3.back + offset, transform.position) > 4)
                 {
-                    _am.SetFloat("movement", speed);
+                    if (!special)
+                    {
+                        _am.SetFloat("movement", speed);
+                    }
+                    else
+                    {
+                        _am.SetFloat("movement", 6);
+
+                    }
                     transform.LookAt(targetPos);
                     transform.position = Vector3.MoveTowards(transform.position , targetPos + Vector3.back +offset, speed * Time.deltaTime);
                 }
@@ -78,10 +86,24 @@ public class AnimalFollow : MonoBehaviour
                 {
                     _am.SetFloat("movement", 0);
 
+                    if (special && !SpecialTriggered)
+                    {
+                        GetComponent<WolfTalking>().ActivateNextText();
+                        SpecialTriggered = true;
+                        following = false;
+                        objectToFollow = null;
+                        SelectBestPath();
+                    }
+
                 }
 
                 
             }
         }
+    }
+
+    private void SelectBestPath()
+    {
+        GetComponent<SpecialPathedMovement>().Activate();
     }
 }

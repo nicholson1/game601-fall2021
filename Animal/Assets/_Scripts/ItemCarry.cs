@@ -51,14 +51,14 @@ public class ItemCarry : MonoBehaviour
 
         if (item1 != null)
         {
-            if (Input.GetKeyDown(KeyCode.Alpha1))
+            if (Input.GetButtonDown("dropItem1"))
             {
                 DropItem1();
             }
         }
         if (item2 != null)
         {
-            if (Input.GetKeyDown(KeyCode.Alpha2))
+            if (Input.GetButtonDown("dropItem2"))
             {
                 DropItem2();
             }

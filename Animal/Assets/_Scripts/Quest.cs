@@ -16,9 +16,11 @@ public class Quest : MonoBehaviour
 
     public Transform CheckLocation;
 
+    private QuestTracker _questTracker;
     private void Update()
     {
         CheckIfComplete();
+        
     }
 
     private void Start()
@@ -27,6 +29,8 @@ public class Quest : MonoBehaviour
         {
             CheckLocation = transform;
         }
+
+        _questTracker = FindObjectOfType<QuestTracker>();
     }
 
     private void CheckIfComplete()
@@ -95,6 +99,7 @@ public class Quest : MonoBehaviour
 
         GameObject player = GameObject.FindWithTag("Player");
         Instantiate(CompleteQuestParticle, player.transform);
+        _questTracker.CompleteQuest();
         //if anyone was following set follow = false;
 
 

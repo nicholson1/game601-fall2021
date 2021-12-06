@@ -36,7 +36,8 @@ public class ButterflySpawner : MonoBehaviour
 
         transform.RotateAround(transform.parent.position, transform.up, rotateSpeed * Time.deltaTime);
 
-        timeAlive -= Time.deltaTime;
+        if(timeAlive != 69)
+            timeAlive -= Time.deltaTime;
         if (timeAlive < 0)
         {
             //timeAlive = 1.2f;
