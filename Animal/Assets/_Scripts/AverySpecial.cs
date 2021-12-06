@@ -22,7 +22,7 @@ public class AverySpecial : AnimalQuestSpecial
         
         QuestText.SetActive(false);
         GetComponent<AnimalInteract>().textBox = PostQuestText;
-        GetComponent<Animator>().SetFloat("movement", 0);
+        GetComponentInChildrenitem<Animator>().SetFloat("movement", 0);
         
         endMenu.transform.parent.gameObject.SetActive(true);
         endMenu.SetActive(true);
