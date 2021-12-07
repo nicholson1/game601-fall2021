@@ -17,4 +17,17 @@ public class GameManager : MonoBehaviour
             _fade.FadeIn();
     }
 
+    private void Awake()
+    {
+        GameManager[] library = FindObjectsOfType<GameManager>();
+
+        if (library.Length > 1)
+        {
+            Destroy(this.gameObject);
+        }
+
+        DontDestroyOnLoad(this.gameObject);
+    }
+    
+
 }

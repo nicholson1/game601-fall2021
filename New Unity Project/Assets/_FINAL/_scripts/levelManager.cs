@@ -17,8 +17,10 @@ public class levelManager : MonoBehaviour
     public Fade _fade;
     private DoorEnter _doorEnter;
     private bool chaosTriggered;
+    private GameManager _gm;
     public void LevelStart()
     {
+        _gm = FindObjectOfType<GameManager>();
         Enemies = FindObjectsOfType<Monster>();
         _doorEnter = FindObjectOfType<DoorEnter>();
         jumpText.text = "Jumps Remaining: " + JumpsRemaining;
@@ -26,6 +28,8 @@ public class levelManager : MonoBehaviour
         _fade = FindObjectOfType<Fade>();
         _fade.gameObject.SetActive(true);
         _fade.FadeIn();
+        JumpsRemaining = _gm.totalJumps;
+        UpdateText();
         StartCoroutine(waitThenOpenDoor());
 
     }
@@ -103,7 +107,20 @@ public class levelManager : MonoBehaviour
             yield return new WaitForSeconds(.1f);
         }
 
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        if (SceneManager.GetActiveScene().buildIndex == 6)
+        {
+            _gm.totalJumps += 1;
+            _gm.totalChunks += 3;
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            
+
+        }
+        else
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+
+        }
+
     }
 
     public void LoadNextLevel()
