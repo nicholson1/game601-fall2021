@@ -49,7 +49,7 @@ public class CameraControll : MonoBehaviour
         if(Input.GetMouseButton(0))
         {
             
-            transform.RotateAround(transform.parent.position + new Vector3(0, 1, 0), transform.up, Input.GetAxis("Mouse X")*5f);
+            //transform.RotateAround(transform.parent.position + new Vector3(0, 1, 0), transform.up, Input.GetAxis("Mouse X")*5f);
             transform.RotateAround(transform.parent.position + new Vector3(0, 1, 0), transform.right,-Input.GetAxis("Mouse Y") * 5f);
 
             transform.eulerAngles =  new Vector3(transform.eulerAngles.x, transform.eulerAngles.y ,0);
@@ -103,8 +103,14 @@ public class CameraControll : MonoBehaviour
         transform.LookAt(transform.parent.position + new Vector3(0, 2, 0));
         if (Input.GetButtonUp("menu"))
         {
-                
-            Menu.SetActive(!Menu.activeSelf);
+            if (Menu.gameObject.activeSelf == false)
+            {
+                Menu.GetComponent<Menu>().TurnOnMenu();
+            }
+            else
+            {
+                Menu.GetComponent<Menu>().TurnOffMenu();
+            }
         }
     }
 }

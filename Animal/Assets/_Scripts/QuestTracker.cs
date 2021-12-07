@@ -15,16 +15,18 @@ public class QuestTracker : MonoBehaviour
     public int QuestRequiredToWin = 10;
 
     private bool hasTriggeredWolf;
+    private SoundManager _sm;
 
     private void Start()
     {
+        _sm = FindObjectOfType<SoundManager>();
         WolfToActivate.SetActive(false);
     }
 
     public void CompleteQuest()
     {
         QuestsCompleted += 1;
-        
+        _sm.PlayQuestCompleteSound();
         if (QuestsCompleted >= QuestRequiredToWin && !hasTriggeredWolf)
         {
             WolfToActivate.transform.position = WolfToDeactive.transform.position;

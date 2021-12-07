@@ -31,6 +31,8 @@ public class currleySpecial : AnimalQuestSpecial
         LarryQuest.SetActive(true);
         GetComponent<AnimalInteract>().textBox = PostQuestText;
         larry.GetComponent<AnimalInteract>().textBox = LarryPostQuestText;
+        Debug.Log("how tf did i run");
+
 
         larry.GetComponent<AnimalFollow>().DontNeedItem = true;
 
@@ -41,6 +43,8 @@ public class currleySpecial : AnimalQuestSpecial
 
     public override void QuestSpecialAction(GameObject[] req)
     {
+        Debug.Log("how tf did i run");
+        GetComponent<AnimalInteract>().textBox.SetActive(false);
         Instantiate(Butterfly, larry.transform);
         QuestTextOnLarry.SetActive(true);
         StartCoroutine(WaitThenRemoveText());

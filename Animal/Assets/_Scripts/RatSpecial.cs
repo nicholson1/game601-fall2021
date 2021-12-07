@@ -45,9 +45,10 @@ public class RatSpecial : AnimalQuestSpecial
     public override void QuestSpecialAction(GameObject[] req)
     {
 
+        GetComponent<AnimalInteract>().textBox.SetActive(false);
         QuestText.SetActive(true);
         _ARM.Activated = true;
-        _ARM.SpecificMovment(FindClosestCheese(req).position, 3);
+        _ARM.SpecificMovment(FindClosestCheese(req).position, 1);
         StartCoroutine(WaitThenRemoveText());
 
 

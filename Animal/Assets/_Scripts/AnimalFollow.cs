@@ -88,11 +88,11 @@ public class AnimalFollow : MonoBehaviour
 
                     if (special && !SpecialTriggered)
                     {
-                        GetComponent<WolfTalking>().ActivateNextText();
                         SpecialTriggered = true;
                         following = false;
                         objectToFollow = null;
-                        SelectBestPath();
+                        StartCoroutine(WaitThenMove());
+
                     }
 
                 }
@@ -100,6 +100,15 @@ public class AnimalFollow : MonoBehaviour
                 
             }
         }
+    }
+
+    public IEnumerator WaitThenMove()
+    {
+        _am.SetFloat("movement", 0);
+        GetComponent<WolfTalking>().ActivateNextText();
+        yield return new WaitForSeconds(3);
+        SelectBestPath();
+
     }
 
     private void SelectBestPath()

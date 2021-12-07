@@ -24,7 +24,7 @@ public class WolfTalking : MonoBehaviour
     {
         _am.SetTrigger("howl");
         ActivatedObj.SetActive(true);
-        yield return new WaitForSeconds(10f);
+        yield return new WaitForSeconds(7f);
         if (index < texts.Length - 1)
         {
             index += 1;

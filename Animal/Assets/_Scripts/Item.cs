@@ -15,9 +15,11 @@ public class Item : MonoBehaviour
     public Vector3 offsetScale;
     public bool pickedUp = false;
 
+    private SoundManager _sm;
 
     public void Start()
     {
+        _sm = FindObjectOfType<SoundManager>();
         // GameObject model = Instantiate(Model, transform);
         // model.name = "ItemModel";
         // model.transform.rotation = transform.rotation;
@@ -66,6 +68,7 @@ public class Item : MonoBehaviour
             transform.localScale = Vector3.one + offsetScale;
             pickedUp = true;
             CloseToolTip();
+            _sm.MenuButtonSound();
             
         }
 

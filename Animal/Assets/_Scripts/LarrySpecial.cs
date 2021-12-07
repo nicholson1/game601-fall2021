@@ -18,17 +18,16 @@ public class LarrySpecial : AnimalQuestSpecial
         PostQuestText.SetActive(false);
     }
     
-    public IEnumerator WaitThenRemoveText()
+    public IEnumerator WaitThenRemoveTextLarry()
     {
         
         yield return new WaitForSeconds(6f);
         QuestTextOnCurrly.SetActive(false);
         QuestTextOnLarry.SetActive(false);
-        if (gameObject.name != currly.name)
-        {
-            GetComponent<AnimalInteract>().textBox = PostQuestText;
+        
+        GetComponent<AnimalInteract>().textBox = PostQuestText;
 
-        }
+        
         GetComponent<AnimalRandomMovement>().Activate(3);
         GetComponent<AnimalFollow>().following = false;
 
@@ -43,7 +42,7 @@ public class LarrySpecial : AnimalQuestSpecial
         Instantiate(Butterfly, currly.transform);
         QuestTextOnCurrly.SetActive(true);
         QuestTextOnLarry.SetActive(true);
-        StartCoroutine(WaitThenRemoveText());
+        StartCoroutine(WaitThenRemoveTextLarry());
 
 
     }

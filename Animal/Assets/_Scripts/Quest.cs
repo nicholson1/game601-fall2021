@@ -100,6 +100,13 @@ public class Quest : MonoBehaviour
         GameObject player = GameObject.FindWithTag("Player");
         Instantiate(CompleteQuestParticle, player.transform);
         _questTracker.CompleteQuest();
+        AnimalQuestSpecial _AQS = GetComponentInParent<AnimalQuestSpecial>();
+
+        
+        if (_AQS != null)
+        {
+            _AQS.QuestSpecialAction(Requirments);
+        }
         //if anyone was following set follow = false;
 
 
@@ -112,7 +119,6 @@ public class Quest : MonoBehaviour
         AnimalPathedMovement _APM = animal.GetComponent<AnimalPathedMovement>();
         AnimalFollow _AF = animal.GetComponent<AnimalFollow>();
         AnimalRandomMovement _ARM = animal.GetComponent<AnimalRandomMovement>();
-        AnimalQuestSpecial _AQS = animal.GetComponent<AnimalQuestSpecial>();
 
         if (_APM != null)
         {
@@ -123,10 +129,7 @@ public class Quest : MonoBehaviour
             _AF.following = false;
         }
 
-        if (_AQS != null)
-        {
-            _AQS.QuestSpecialAction(Requirments);
-        }
+        
         
         
         // //do after special

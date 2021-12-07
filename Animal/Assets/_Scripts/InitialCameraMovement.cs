@@ -11,6 +11,7 @@ public class InitialCameraMovement : MonoBehaviour
     public Transform otherCameraPos;
     public Transform player;
 
+    private SoundManager _sm;
 
     public float speed;
     public bool zoomIn;
@@ -21,9 +22,12 @@ public class InitialCameraMovement : MonoBehaviour
     public GameObject menuCanvas;
     public WolfTalking dog;
     public GameObject Butterflies;
+    public GameObject snowballText;
 
     private void Start()
     {
+        _sm = FindObjectOfType<SoundManager>();
+
         transform.LookAt(player.position + new Vector3(0, 2, 0));
 
         otherCameraPos.gameObject.SetActive(false);
@@ -83,14 +87,22 @@ public class InitialCameraMovement : MonoBehaviour
         player.GetComponentInChildren<CameraControll>().enabled = true;
 
         dog.ActivateNextText();
+        snowballText.SetActive(false);
+
         gameObject.SetActive(false);
+        
     }
 
     public void BeginZoom()
     {
+        _sm.MenuButtonSound();
+
         go = true;
+        snowballText.GetComponent<RotateTextBoxToCamera>().CameraPos = this.transform;
+
         menuCanvas.SetActive(false);
         Butterflies.SetActive(false);
+        snowballText.SetActive(true);
 
     }
 

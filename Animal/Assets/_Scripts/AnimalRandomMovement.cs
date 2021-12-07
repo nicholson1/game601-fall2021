@@ -89,8 +89,14 @@ public class AnimalRandomMovement : MonoBehaviour
                 //_am.SetFloat("movement", speed);
 
                 //Debug.Log(new Vector2(transform.position.x - MoveDirection.x, transform.position.z - MoveDirection.z).magnitude);
+                float dist = 1.5f;
+                if (SpecificMove)
+                {
+                    dist = .5f;
+                }
                 
-                if (new Vector2(transform.position.x - MoveDirection.x, transform.position.z - MoveDirection.z).magnitude <= 1.5f)
+                
+                if (new Vector2(transform.position.x - MoveDirection.x, transform.position.z - MoveDirection.z).magnitude <= dist)
 
                 {
                     //Debug.Log("We at the target location");

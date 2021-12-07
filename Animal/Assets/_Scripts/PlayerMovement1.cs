@@ -20,6 +20,7 @@ public class PlayerMovement1 : MonoBehaviour
     public float rotationSpeed = 1;
 	public bool grounded;
 	public float smoothTime = 0.15f;
+	
 
 	public float MountedRunSpeed;
 	public float MountedWalkSpeed;
@@ -38,11 +39,13 @@ public class PlayerMovement1 : MonoBehaviour
 	
 	private bool Mounted;
 	private Vector3 lastPosition;
-
+	private SoundManager _sm;
     void Start()
     {
         am = GetComponentInChildren<Animator>();
         rb = GetComponent<Rigidbody>();
+        _sm = GetComponentInChildren<SoundManager>();
+
     }
 
     /*private void OnCollisionEnter(Collision other)
@@ -103,6 +106,7 @@ public class PlayerMovement1 : MonoBehaviour
 		    am.SetBool("landing", true);
 		    am.SetBool("falling", false);
 		    am.SetBool("jumping", false);
+		    
 	    }
 	    else
 	    {
@@ -267,6 +271,7 @@ public class PlayerMovement1 : MonoBehaviour
 		    rb.AddForce(transform.up * jumpForce);
 		    am.SetBool("jumping", false);
 		    grounded = false;
+
 
 
 	    }

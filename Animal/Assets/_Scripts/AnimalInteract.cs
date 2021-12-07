@@ -18,9 +18,13 @@ public class AnimalInteract : MonoBehaviour
     private AnimalRandomMovement _ARM;
     private AnimalPathedMovement _APM;
     public bool canInteract = true;
+    private SoundManager _sm;
+
 
     private void Start()
     {
+        _sm = FindObjectOfType<SoundManager>();
+
         textBox.SetActive(false);
         _am = GetComponentInChildren<Animator>();
         _ARM = GetComponent<AnimalRandomMovement>();
@@ -42,8 +46,12 @@ public class AnimalInteract : MonoBehaviour
         Vector3 playerPos = new Vector3(playerPosition.position.x, transform.position.y, playerPosition.position.z);
         transform.LookAt(playerPos, Vector3.up);
         _am.SetTrigger("eat");
+        _am.SetFloat("movement", 0);
         textBox.GetComponent<RotateTextBoxToCamera>().CameraPos = playerPosition.GetComponentInChildren<Camera>().transform;
         textBox.SetActive(true);
+        _sm.MenuButtonSound();
+
+        
 
         
         
