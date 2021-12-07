@@ -6,9 +6,15 @@ public class GameManager : MonoBehaviour
 {
     // Start is called before the first frame update
     public Fade _fade;
+
+    public int totalChunks;
+    public int JumpSpacing;
+    public int totalJumps;
+    public int queueSize;
     private void Start()
     {
-        _fade.FadeIn();
+        if(_fade != null)
+            _fade.FadeIn();
     }
 
 }

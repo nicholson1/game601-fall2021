@@ -17,7 +17,7 @@ public class levelManager : MonoBehaviour
     public Fade _fade;
     private DoorEnter _doorEnter;
     private bool chaosTriggered;
-    void Start()
+    public void LevelStart()
     {
         Enemies = FindObjectsOfType<Monster>();
         _doorEnter = FindObjectOfType<DoorEnter>();
