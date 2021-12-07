@@ -50,7 +50,7 @@ public class ChickenSpecial : AnimalQuestSpecial
         {
             Instantiate(butterflyies, chicken.transform);
             
-            chicken.GetComponent<AnimalRandomMovement>().SpecificMovment(transform.position, 3);
+            chicken.GetComponent<AnimalRandomMovement>().SpecificMovment(transform.position, 1);
 
         }
 

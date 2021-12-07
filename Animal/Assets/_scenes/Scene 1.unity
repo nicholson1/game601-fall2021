@@ -965,17 +965,17 @@ PrefabInstance:
     - target: {fileID: 2529758731517752292, guid: 2bd2a24ca56630741821bdb4181ef248,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 64.872574
+      value: -234.92743
       objectReference: {fileID: 0}
     - target: {fileID: 2529758731517752292, guid: 2bd2a24ca56630741821bdb4181ef248,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 9.400065
+      value: 4.380065
       objectReference: {fileID: 0}
     - target: {fileID: 2529758731517752292, guid: 2bd2a24ca56630741821bdb4181ef248,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 155.16653
+      value: -89.34347
       objectReference: {fileID: 0}
     - target: {fileID: 2529758731517752292, guid: 2bd2a24ca56630741821bdb4181ef248,
         type: 3}
@@ -1020,8 +1020,7 @@ PrefabInstance:
     - target: {fileID: 3576496143083751847, guid: 2bd2a24ca56630741821bdb4181ef248,
         type: 3}
       propertyPath: m_Text
-      value: I was following the other kid, but then I got lost trying to get back.
-        Can you help me get home?
+      value: Why did I cross the road? Can I follow you home?
       objectReference: {fileID: 0}
     - target: {fileID: 3576496143083751847, guid: 2bd2a24ca56630741821bdb4181ef248,
         type: 3}
@@ -1968,17 +1967,17 @@ PrefabInstance:
     - target: {fileID: 2529758731517752292, guid: c6b6453cc531e8a429e67724d3d8b1b0,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -234.92743
+      value: 51.12
       objectReference: {fileID: 0}
     - target: {fileID: 2529758731517752292, guid: c6b6453cc531e8a429e67724d3d8b1b0,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.380065
+      value: 7.88
       objectReference: {fileID: 0}
     - target: {fileID: 2529758731517752292, guid: c6b6453cc531e8a429e67724d3d8b1b0,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -89.34347
+      value: 157.39
       objectReference: {fileID: 0}
     - target: {fileID: 2529758731517752292, guid: c6b6453cc531e8a429e67724d3d8b1b0,
         type: 3}
@@ -2023,11 +2022,17 @@ PrefabInstance:
     - target: {fileID: 3576496143083751847, guid: c6b6453cc531e8a429e67724d3d8b1b0,
         type: 3}
       propertyPath: m_Text
-      value: Why did I cross the road? Can I follow you home?
+      value: I was following the other kid, but then I got lost trying to get back.
+        Can you help me get home?
       objectReference: {fileID: 0}
     - target: {fileID: 3576496143083751847, guid: c6b6453cc531e8a429e67724d3d8b1b0,
         type: 3}
       propertyPath: m_FontData.m_BestFit
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3576496143451657879, guid: c6b6453cc531e8a429e67724d3d8b1b0,
+        type: 3}
+      propertyPath: m_PresetInfoIsWorld
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8489979480107712964, guid: c6b6453cc531e8a429e67724d3d8b1b0,
@@ -4368,6 +4373,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1349327690108198329, guid: 916335688c4d68b45ab28934b9f8f230,
+        type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 916335688c4d68b45ab28934b9f8f230, type: 3}
@@ -12092,6 +12102,156 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cc218ea9d7686d047b32705bd80cd7ef, type: 3}
+--- !u!1001 &700615572
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 800894200}
+    m_Modifications:
+    - target: {fileID: 1713364461013772176, guid: 75558ffdf76bfb946a8cf82be9c58160,
+        type: 3}
+      propertyPath: CustomTip
+      value: Jillian
+      objectReference: {fileID: 0}
+    - target: {fileID: 4687933391920879024, guid: 75558ffdf76bfb946a8cf82be9c58160,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4687933391920879024, guid: 75558ffdf76bfb946a8cf82be9c58160,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4687933391920879024, guid: 75558ffdf76bfb946a8cf82be9c58160,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4687933391920879024, guid: 75558ffdf76bfb946a8cf82be9c58160,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4687933391920879024, guid: 75558ffdf76bfb946a8cf82be9c58160,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -28.48
+      objectReference: {fileID: 0}
+    - target: {fileID: 4687933391920879024, guid: 75558ffdf76bfb946a8cf82be9c58160,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.22
+      objectReference: {fileID: 0}
+    - target: {fileID: 4687933391920879024, guid: 75558ffdf76bfb946a8cf82be9c58160,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -23.730515
+      objectReference: {fileID: 0}
+    - target: {fileID: 4687933391920879024, guid: 75558ffdf76bfb946a8cf82be9c58160,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4687933391920879024, guid: 75558ffdf76bfb946a8cf82be9c58160,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4687933391920879024, guid: 75558ffdf76bfb946a8cf82be9c58160,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4687933391920879024, guid: 75558ffdf76bfb946a8cf82be9c58160,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4687933391920879024, guid: 75558ffdf76bfb946a8cf82be9c58160,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4687933391920879024, guid: 75558ffdf76bfb946a8cf82be9c58160,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 4687933391920879024, guid: 75558ffdf76bfb946a8cf82be9c58160,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4687933391920879025, guid: 75558ffdf76bfb946a8cf82be9c58160,
+        type: 3}
+      propertyPath: m_Name
+      value: Waters
+      objectReference: {fileID: 0}
+    - target: {fileID: 4687933391920879025, guid: 75558ffdf76bfb946a8cf82be9c58160,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4687933391920879036, guid: 75558ffdf76bfb946a8cf82be9c58160,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 122
+      objectReference: {fileID: 0}
+    - target: {fileID: 4687933391920879036, guid: 75558ffdf76bfb946a8cf82be9c58160,
+        type: 3}
+      propertyPath: m_IsKinematic
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4687933391920879036, guid: 75558ffdf76bfb946a8cf82be9c58160,
+        type: 3}
+      propertyPath: m_CollisionDetection
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6032330872002293955, guid: 75558ffdf76bfb946a8cf82be9c58160,
+        type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6032330872225787660, guid: 75558ffdf76bfb946a8cf82be9c58160,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 83.09
+      objectReference: {fileID: 0}
+    - target: {fileID: 6032330872225787660, guid: 75558ffdf76bfb946a8cf82be9c58160,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6032330872225787660, guid: 75558ffdf76bfb946a8cf82be9c58160,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -1.7400017
+      objectReference: {fileID: 0}
+    - target: {fileID: 6032330872225787891, guid: 75558ffdf76bfb946a8cf82be9c58160,
+        type: 3}
+      propertyPath: m_Text
+      value: Jillian and Jackie are my best friends!
+      objectReference: {fileID: 0}
+    - target: {fileID: 7067661553006045521, guid: 75558ffdf76bfb946a8cf82be9c58160,
+        type: 3}
+      propertyPath: important
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7067661553006045528, guid: 75558ffdf76bfb946a8cf82be9c58160,
+        type: 3}
+      propertyPath: speed
+      value: 5
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 75558ffdf76bfb946a8cf82be9c58160, type: 3}
+--- !u!4 &700615573 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4687933391920879024, guid: 75558ffdf76bfb946a8cf82be9c58160,
+    type: 3}
+  m_PrefabInstance: {fileID: 700615572}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &702043849 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 802600333312446408, guid: 007097c065521f04699029690f0cd341,
@@ -14522,6 +14682,7 @@ Transform:
   - {fileID: 153882888}
   - {fileID: 1647586155}
   - {fileID: 1889530449}
+  - {fileID: 700615573}
   m_Father: {fileID: 964225336}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -21033,6 +21194,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1349327690108198329, guid: 916335688c4d68b45ab28934b9f8f230,
+        type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 916335688c4d68b45ab28934b9f8f230, type: 3}
 --- !u!4 &1219659943 stripped
@@ -26210,7 +26376,7 @@ PrefabInstance:
     - target: {fileID: 4687933391920879024, guid: 75558ffdf76bfb946a8cf82be9c58160,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -12.144852
+      value: -19.86
       objectReference: {fileID: 0}
     - target: {fileID: 4687933391920879024, guid: 75558ffdf76bfb946a8cf82be9c58160,
         type: 3}
@@ -26281,6 +26447,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_CollisionDetection
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6032330872002293955, guid: 75558ffdf76bfb946a8cf82be9c58160,
+        type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6032330872225787660, guid: 75558ffdf76bfb946a8cf82be9c58160,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 84.81
+      objectReference: {fileID: 0}
+    - target: {fileID: 6032330872225787660, guid: 75558ffdf76bfb946a8cf82be9c58160,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6032330872225787660, guid: 75558ffdf76bfb946a8cf82be9c58160,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.64
+      objectReference: {fileID: 0}
+    - target: {fileID: 6032330872225787891, guid: 75558ffdf76bfb946a8cf82be9c58160,
+        type: 3}
+      propertyPath: m_Text
+      value: We hopped up here from the garden to hang out with our good pal Waters!
       objectReference: {fileID: 0}
     - target: {fileID: 7067661553006045521, guid: 75558ffdf76bfb946a8cf82be9c58160,
         type: 3}
@@ -29366,7 +29557,8 @@ PrefabInstance:
     - target: {fileID: 3576496143083751847, guid: 2bd2a24ca56630741821bdb4181ef248,
         type: 3}
       propertyPath: m_Text
-      value: Wheres my drummer man?
+      value: 'The forest is a dangerous place for a tasty chicken like Ringo, I hope
+        he comes back in one piece. '
       objectReference: {fileID: 0}
     - target: {fileID: 3576496143083751847, guid: 2bd2a24ca56630741821bdb4181ef248,
         type: 3}
@@ -33413,7 +33605,7 @@ PrefabInstance:
     - target: {fileID: 4687933391920879024, guid: 75558ffdf76bfb946a8cf82be9c58160,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -12.8
+      value: -18.51
       objectReference: {fileID: 0}
     - target: {fileID: 4687933391920879024, guid: 75558ffdf76bfb946a8cf82be9c58160,
         type: 3}
@@ -33485,10 +33677,30 @@ PrefabInstance:
       propertyPath: m_CollisionDetection
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6032330872002293955, guid: 75558ffdf76bfb946a8cf82be9c58160,
+        type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6032330872225787660, guid: 75558ffdf76bfb946a8cf82be9c58160,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 85.07
+      objectReference: {fileID: 0}
+    - target: {fileID: 6032330872225787660, guid: 75558ffdf76bfb946a8cf82be9c58160,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6032330872225787660, guid: 75558ffdf76bfb946a8cf82be9c58160,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.22999954
+      objectReference: {fileID: 0}
     - target: {fileID: 6032330872225787891, guid: 75558ffdf76bfb946a8cf82be9c58160,
         type: 3}
       propertyPath: m_Text
-      value: Have you seen my Dad?
+      value: Our pal Waters is the coolest rabbit I know!
       objectReference: {fileID: 0}
     - target: {fileID: 6032330872225787891, guid: 75558ffdf76bfb946a8cf82be9c58160,
         type: 3}
