@@ -29,7 +29,7 @@ public class Library: MonoBehaviour
 
 	    DontDestroyOnLoad(this.gameObject);
 	    
-	    var chunks = Resources.LoadAll("library/Chunks", typeof(GameObject)).Cast<GameObject>().ToArray();
+	    var chunks = Resources.LoadAll("PCG/Chunks", typeof(GameObject)).Cast<GameObject>().ToArray();
     	//string[] newprechunks =  AssetDatabase.FindAssets("_", new[] {"Assets/Resources/library3/Chunks"});
 
         
