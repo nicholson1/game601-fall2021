@@ -36,8 +36,7 @@ public class Jigsaw : MonoBehaviour
 	////////////////////////////////////////
 	////////space out the puzzle chunks
 	public int Jump_spacing = 5;
-	private int Jump_count = 0;
-	private int TotalJumps;
+	private int Jump_count;
 
 
 
@@ -68,7 +67,7 @@ public class Jigsaw : MonoBehaviour
 		_GM = FindObjectOfType<GameManager>();
 		total_chunks = _GM.totalChunks;
 		Jump_spacing = _GM.JumpSpacing;
-		TotalJumps = _GM.totalJumps;
+		Jump_count = _GM.totalJumps;
 		queue_size = _GM.queueSize;
 
 	}
@@ -129,7 +128,8 @@ public class Jigsaw : MonoBehaviour
 		GameObject x = Instantiate(chunk, current_anch.position, current_chunk.transform.rotation);
 		current_anch = x.GetComponent<info>().anchor;
 		total_chunks -= 1;
-		TotalJumps += x.GetComponent<info>().Jumps;
+		Jump_count -= x.GetComponent<info>().Jumps;
+		Debug.Log(Jump_count);
 
 	}
 
@@ -160,21 +160,23 @@ public class Jigsaw : MonoBehaviour
 
 	void GetChunk()
 	{
-		possible_chunks = nojump;
-		if (TotalJumps > Jump_count)
+		
+		possible_chunks = new List<GameObject>();
+		possible_chunks.AddRange(nojump);
+		if (Jump_count > 0)
 		{
 			//make a list of all the objects with a lower or equal jump value to total jumps - jump count;
 			List<GameObject> possibleJumps = new List<GameObject>();
 			foreach (GameObject j in jump)
 			{
-				if (j.GetComponent<info>().Jumps <= TotalJumps - Jump_count)
+				if (j.GetComponent<info>().Jumps <= Jump_count)
 				{
+					
 					possibleJumps.Add(j);
 				}
 			}
 			
 			possible_chunks.AddRange(possibleJumps);
-			Debug.Log(possibleJumps.Count);
 
 		}
 		

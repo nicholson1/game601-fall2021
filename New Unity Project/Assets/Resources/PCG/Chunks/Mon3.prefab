@@ -2345,6 +2345,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Monster
       objectReference: {fileID: 0}
+    - target: {fileID: 2065967026730567422, guid: f1d2cf3287b6fc54cbd5dde968e49a77, type: 3}
+      propertyPath: Attacking
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2065967026730567423, guid: f1d2cf3287b6fc54cbd5dde968e49a77, type: 3}
       propertyPath: m_RootOrder
       value: 0

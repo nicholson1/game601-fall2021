@@ -46,26 +46,17 @@ public class Library: MonoBehaviour
 	        {
 		        start.Add(temp);
 	        }
-	        else 
-
-	        if (info.Jumps > 0)
+	        else if (info.Jumps >= 1)
 	        {
 		        jump.Add(temp);
 	        }
 	        else
 	        {
 		        nojump.Add(temp);
+		        Debug.Log(info.Jumps + temp.name);
 	        }
 
-	        if (info.is_end)
-	        {
-		        end.Add(temp);
-	        }
-
-	        else if (info.is_start)
-	        {
-		        start.Add(temp);
-	        }
+	        
 
 
 
