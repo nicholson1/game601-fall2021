@@ -18,6 +18,16 @@ public class levelManager : MonoBehaviour
     private DoorEnter _doorEnter;
     private bool chaosTriggered;
     private GameManager _gm;
+    
+
+    public void Start()
+    {
+        if(SceneManager.GetActiveScene().buildIndex != 6)
+        {
+            LevelStart();
+        }
+    }
+
     public void LevelStart()
     {
         _gm = FindObjectOfType<GameManager>();
@@ -28,7 +38,15 @@ public class levelManager : MonoBehaviour
         _fade = FindObjectOfType<Fade>();
         _fade.gameObject.SetActive(true);
         _fade.FadeIn();
-        JumpsRemaining = _gm.totalJumps;
+
+        if (_gm != null)
+        {
+            if (SceneManager.GetActiveScene().buildIndex == 6)
+            {
+                JumpsRemaining = _gm.totalJumps;
+            }
+
+        }
         UpdateText();
         StartCoroutine(waitThenOpenDoor());
 
