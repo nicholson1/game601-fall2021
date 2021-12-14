@@ -18,7 +18,12 @@ public class levelManager : MonoBehaviour
     private DoorEnter _doorEnter;
     private bool chaosTriggered;
     private GameManager _gm;
-    
+
+    public void Awake()
+    {
+        _fade.gameObject.SetActive(true);
+    }
+
 
     public void Start()
     {

@@ -17,6 +17,8 @@ public class Monster : MonoBehaviour
     public ParticleSystem ps;
     public bool ps_on = false;
 
+    public GameObject mouthLights;
+
     public bool Attacking;
 
     public Transform groundDetect;
@@ -169,10 +171,13 @@ public class Monster : MonoBehaviour
         if (ps_on)
         {
             ps.Stop();
+            mouthLights.SetActive(false);
         }
         else
         {
             ps.Play();
+            mouthLights.SetActive(true);
+
         }
 
         ps_on = !ps_on;

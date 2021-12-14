@@ -2,11 +2,9 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Newtonsoft.Json.Serialization;
-using UnityEditor.UI;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
 
 public class door : MonoBehaviour
@@ -39,13 +37,13 @@ public class door : MonoBehaviour
     public void Activate()
     {
         nextlevelTrigger.SetActive(true);
-        GetComponent<SpriteRenderer>().sortingOrder = 1;
+        //GetComponent<SpriteRenderer>().sortingOrder = 1;
     }
 
     public void Deactivate()
     {
         nextlevelTrigger.SetActive(false);
-        GetComponent<SpriteRenderer>().sortingOrder = -1;
+        //GetComponent<SpriteRenderer>().sortingOrder = -1;
 
 
     }

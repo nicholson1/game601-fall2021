@@ -86,7 +86,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -132,6 +132,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   runSpeed: 0.12
   jumpStrength: 12
+  deathObj: {fileID: 0}
+  balloon: {fileID: 0}
   groundDetect: {fileID: 3880700424904300087}
 --- !u!70 &3880700425198581252
 CapsuleCollider2D:
